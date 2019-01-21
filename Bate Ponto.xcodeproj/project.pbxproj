@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2079A1F86700AE624984EC75 /* Pods_Bate_PontoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6418E5401CDAA7BCAEA88960 /* Pods_Bate_PontoTests.framework */; };
+		7A2D15EC21F24B6300A0B86B /* TaskWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2D15EB21F24B6300A0B86B /* TaskWebViewController.swift */; };
+		7A2D15EE21F260A700A0B86B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2D15ED21F260A700A0B86B /* LoginViewController.swift */; };
 		7A9D6FCF21F0BD6F00F5B426 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9D6FCE21F0BD6F00F5B426 /* AppDelegate.swift */; };
 		7A9D6FD121F0BD6F00F5B426 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9D6FD021F0BD6F00F5B426 /* ViewController.swift */; };
 		7A9D6FD421F0BD6F00F5B426 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A9D6FD221F0BD6F00F5B426 /* Main.storyboard */; };
@@ -14,6 +17,10 @@
 		7A9D6FD921F0BD7B00F5B426 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A9D6FD721F0BD7B00F5B426 /* LaunchScreen.storyboard */; };
 		7A9D6FE421F0BD7C00F5B426 /* Bate_PontoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9D6FE321F0BD7C00F5B426 /* Bate_PontoTests.swift */; };
 		7A9D6FEF21F0BD7C00F5B426 /* Bate_PontoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9D6FEE21F0BD7C00F5B426 /* Bate_PontoUITests.swift */; };
+		7A9D6FFD21F0BE6400F5B426 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9D6FFC21F0BE6400F5B426 /* UserModel.swift */; };
+		7A9D6FFF21F0BF8200F5B426 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9D6FFE21F0BF8200F5B426 /* UserViewModel.swift */; };
+		95C86F54459E90464F7FFE4D /* Pods_Bate_Ponto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D37D8A5D87763B25F237941 /* Pods_Bate_Ponto.framework */; };
+		F71E092351F632A346A3659F /* Pods_Bate_PontoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEE9AAED72641A13AECE58AD /* Pods_Bate_PontoUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +41,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0DD510E8279F0CCDD0DF6538 /* Pods-Bate PontoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bate PontoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bate PontoTests/Pods-Bate PontoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		340BB40F900CA33710DC1C35 /* Pods-Bate PontoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bate PontoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bate PontoUITests/Pods-Bate PontoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5D37D8A5D87763B25F237941 /* Pods_Bate_Ponto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bate_Ponto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6418E5401CDAA7BCAEA88960 /* Pods_Bate_PontoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bate_PontoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		76B90276A633D49CCE2F1B1C /* Pods-Bate PontoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bate PontoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bate PontoUITests/Pods-Bate PontoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7A2D15EB21F24B6300A0B86B /* TaskWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskWebViewController.swift; sourceTree = "<group>"; };
+		7A2D15ED21F260A700A0B86B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7A9D6FCB21F0BD6F00F5B426 /* Bate Ponto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bate Ponto.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A9D6FCE21F0BD6F00F5B426 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A9D6FD021F0BD6F00F5B426 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +61,12 @@
 		7A9D6FEA21F0BD7C00F5B426 /* Bate PontoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bate PontoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A9D6FEE21F0BD7C00F5B426 /* Bate_PontoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bate_PontoUITests.swift; sourceTree = "<group>"; };
 		7A9D6FF021F0BD7C00F5B426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A9D6FFC21F0BE6400F5B426 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		7A9D6FFE21F0BF8200F5B426 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		91B4C866DF4B6FE0CAD2D9F3 /* Pods-Bate Ponto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bate Ponto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bate Ponto/Pods-Bate Ponto.debug.xcconfig"; sourceTree = "<group>"; };
+		99F43BD2504CE49F6DCFB745 /* Pods-Bate PontoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bate PontoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bate PontoTests/Pods-Bate PontoTests.release.xcconfig"; sourceTree = "<group>"; };
+		BEBF473400EADD76A7D332D2 /* Pods-Bate Ponto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bate Ponto.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bate Ponto/Pods-Bate Ponto.release.xcconfig"; sourceTree = "<group>"; };
+		DEE9AAED72641A13AECE58AD /* Pods_Bate_PontoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bate_PontoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95C86F54459E90464F7FFE4D /* Pods_Bate_Ponto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2079A1F86700AE624984EC75 /* Pods_Bate_PontoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +90,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F71E092351F632A346A3659F /* Pods_Bate_PontoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1CC49648BD1AEB893E1910E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5D37D8A5D87763B25F237941 /* Pods_Bate_Ponto.framework */,
+				6418E5401CDAA7BCAEA88960 /* Pods_Bate_PontoTests.framework */,
+				DEE9AAED72641A13AECE58AD /* Pods_Bate_PontoUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7A9D6FC221F0BD6F00F5B426 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +114,8 @@
 				7A9D6FE221F0BD7C00F5B426 /* Bate PontoTests */,
 				7A9D6FED21F0BD7C00F5B426 /* Bate PontoUITests */,
 				7A9D6FCC21F0BD6F00F5B426 /* Products */,
+				D473E6B9BDE675C04BA8EF97 /* Pods */,
+				1CC49648BD1AEB893E1910E5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +134,10 @@
 			children = (
 				7A9D6FCE21F0BD6F00F5B426 /* AppDelegate.swift */,
 				7A9D6FD021F0BD6F00F5B426 /* ViewController.swift */,
+				7A9D6FFC21F0BE6400F5B426 /* UserModel.swift */,
+				7A9D6FFE21F0BF8200F5B426 /* UserViewModel.swift */,
+				7A2D15EB21F24B6300A0B86B /* TaskWebViewController.swift */,
+				7A2D15ED21F260A700A0B86B /* LoginViewController.swift */,
 				7A9D6FD221F0BD6F00F5B426 /* Main.storyboard */,
 				7A9D6FD521F0BD7B00F5B426 /* Assets.xcassets */,
 				7A9D6FD721F0BD7B00F5B426 /* LaunchScreen.storyboard */,
@@ -125,6 +164,19 @@
 			path = "Bate PontoUITests";
 			sourceTree = "<group>";
 		};
+		D473E6B9BDE675C04BA8EF97 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				91B4C866DF4B6FE0CAD2D9F3 /* Pods-Bate Ponto.debug.xcconfig */,
+				BEBF473400EADD76A7D332D2 /* Pods-Bate Ponto.release.xcconfig */,
+				0DD510E8279F0CCDD0DF6538 /* Pods-Bate PontoTests.debug.xcconfig */,
+				99F43BD2504CE49F6DCFB745 /* Pods-Bate PontoTests.release.xcconfig */,
+				76B90276A633D49CCE2F1B1C /* Pods-Bate PontoUITests.debug.xcconfig */,
+				340BB40F900CA33710DC1C35 /* Pods-Bate PontoUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +184,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7A9D6FF321F0BD7C00F5B426 /* Build configuration list for PBXNativeTarget "Bate Ponto" */;
 			buildPhases = (
+				8540E08927B1D7D092EE8E5B /* [CP] Check Pods Manifest.lock */,
 				7A9D6FC721F0BD6F00F5B426 /* Sources */,
 				7A9D6FC821F0BD6F00F5B426 /* Frameworks */,
 				7A9D6FC921F0BD6F00F5B426 /* Resources */,
+				72FD09E6F2C8CB6B18B1C146 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +203,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7A9D6FF621F0BD7C00F5B426 /* Build configuration list for PBXNativeTarget "Bate PontoTests" */;
 			buildPhases = (
+				18C527B463E129533819E752 /* [CP] Check Pods Manifest.lock */,
 				7A9D6FDB21F0BD7C00F5B426 /* Sources */,
 				7A9D6FDC21F0BD7C00F5B426 /* Frameworks */,
 				7A9D6FDD21F0BD7C00F5B426 /* Resources */,
@@ -167,6 +222,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7A9D6FF921F0BD7C00F5B426 /* Build configuration list for PBXNativeTarget "Bate PontoUITests" */;
 			buildPhases = (
+				B2AE0829493141243189CBD8 /* [CP] Check Pods Manifest.lock */,
 				7A9D6FE621F0BD7C00F5B426 /* Sources */,
 				7A9D6FE721F0BD7C00F5B426 /* Frameworks */,
 				7A9D6FE821F0BD7C00F5B426 /* Resources */,
@@ -251,12 +307,113 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		18C527B463E129533819E752 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bate PontoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		72FD09E6F2C8CB6B18B1C146 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Bate Ponto/Pods-Bate Ponto-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AKMaskField/AKMaskField.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SPStorkController/SPStorkController.framework",
+				"${BUILT_PRODUCTS_DIR}/SparrowKit/SparrowKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AKMaskField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPStorkController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SparrowKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bate Ponto/Pods-Bate Ponto-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8540E08927B1D7D092EE8E5B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bate Ponto-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2AE0829493141243189CBD8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bate PontoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7A9D6FC721F0BD6F00F5B426 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A2D15EE21F260A700A0B86B /* LoginViewController.swift in Sources */,
 				7A9D6FD121F0BD6F00F5B426 /* ViewController.swift in Sources */,
+				7A9D6FFF21F0BF8200F5B426 /* UserViewModel.swift in Sources */,
+				7A2D15EC21F24B6300A0B86B /* TaskWebViewController.swift in Sources */,
+				7A9D6FFD21F0BE6400F5B426 /* UserModel.swift in Sources */,
 				7A9D6FCF21F0BD6F00F5B426 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,9 +587,11 @@
 		};
 		7A9D6FF421F0BD7C00F5B426 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91B4C866DF4B6FE0CAD2D9F3 /* Pods-Bate Ponto.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LNS45ULBVB;
 				INFOPLIST_FILE = "Bate Ponto/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -447,9 +606,11 @@
 		};
 		7A9D6FF521F0BD7C00F5B426 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEBF473400EADD76A7D332D2 /* Pods-Bate Ponto.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LNS45ULBVB;
 				INFOPLIST_FILE = "Bate Ponto/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -464,6 +625,7 @@
 		};
 		7A9D6FF721F0BD7C00F5B426 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0DD510E8279F0CCDD0DF6538 /* Pods-Bate PontoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -484,6 +646,7 @@
 		};
 		7A9D6FF821F0BD7C00F5B426 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99F43BD2504CE49F6DCFB745 /* Pods-Bate PontoTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -504,6 +667,7 @@
 		};
 		7A9D6FFA21F0BD7C00F5B426 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76B90276A633D49CCE2F1B1C /* Pods-Bate PontoUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -523,6 +687,7 @@
 		};
 		7A9D6FFB21F0BD7C00F5B426 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 340BB40F900CA33710DC1C35 /* Pods-Bate PontoUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
