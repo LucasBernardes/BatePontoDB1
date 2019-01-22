@@ -9,16 +9,31 @@
 import UIKit
 import AKMaskField
 import Alamofire
+import CoreLocation
+import KOAlertController
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, CLLocationManagerDelegate {
     let vermelhoEscuro = UIColor(red: 252/255, green: 46/255, blue: 82/255, alpha: 1.0).cgColor
     let vermelhoClaro = UIColor(red: 254/255, green: 86/255, blue: 49/255, alpha: 1.0).cgColor
     let vermelhoClaroUIColor = UIColor(red: 252/255, green: 46/255, blue: 82/255, alpha: 1.0)
     var responseString = ""
+    public static let erroTitulo = "Problema na conexão!"
+    public static let erroCpfTitulo = "Problema com o CPF"
+    public static let erroCpfMensagem = "O CPF informado não foi encontrado na base de dados, por favor verifique o valor inserido"
+    public static let erroSemTitulo = "Campo de CPF/Senha branco"
+    public static let erroSemMensagem = "Por favor preencha ambos os campos antes de fazer a requisição de login"
+    public static let erroSenhaTitulo = "Problema com a senha ou CPF"
+    public static let erroSenhaMensagem = "A Senha não confere ou o CPF informado não foi encontrado na base de dados, por favor verifique os valores inseridos"
+    public static let erroMensagem = "Houve um problema com os servidores e não foi possível executar esta ação"
+    public static let erroBotao = "Compreendi"
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var senhaField: UITextField!
     @IBOutlet weak var cpfField: AKMaskField!
+    @IBOutlet weak var poweredImage: UIImageView!
+    
+    var locationManager: CLLocationManager = CLLocationManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.activityIndicator.isHidden = true
@@ -26,49 +41,74 @@ class LoginViewController: UIViewController {
         self.loginButton.applyGradient(colors: [self.vermelhoEscuro,self.vermelhoClaro])
         self.cpfField.layer.cornerRadius = 10
         self.senhaField.layer.cornerRadius = 10
-        // Do any additional setup after loading the view.
+        self.activityIndicator.startAnimating()
         self.cpfField.setLeftPaddingPoints(15.0)
         self.senhaField.setLeftPaddingPoints(15.0)
         self.senhaField.isSecureTextEntry = true
-        self.cpfField.maskExpression = "{ddd} {ddd} {ddd} {dd}"
+        self.cpfField.maskExpression = "{ddd}.{ddd}.{ddd}-{dd}"
         self.cpfField.maskTemplate = "              "
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
+        self.poweredImage.image = self.poweredImage.image?.maskWithColor(color: .lightGray)
+        UIApplication.shared.cancelAllLocalNotifications()
+        let locattionnotification = UILocalNotification()
+        locattionnotification.alertBody = "Voce chegou na DB1"
+        locattionnotification.regionTriggersOnce = false
+        locattionnotification.region = CLCircularRegion(center: CLLocationCoordinate2D(latitude:
+            -23.4192021, longitude: -51.9356276), radius: 300.0, identifier: "DB1")
+        UIApplication.shared.scheduleLocalNotification(locattionnotification)
         
     }
     
     func startAnimating(){
         self.activityIndicator.startAnimating()
-        self.activityIndicator.isHidden = true
         self.loginButton.setTitle("", for: .normal)
+        self.activityIndicator.isHidden = false
+        
     }
+    
     func stopAnimating(){
         self.activityIndicator.stopAnimating()
-        self.activityIndicator.isHidden = false
+        self.activityIndicator.isHidden = true
         self.loginButton.setTitle("Login", for: .normal)
     }
     
+    func mostraMensagem(titulo: String, mensagem: String, botao: String){
+        let alertController = KOAlertController("\(titulo)", "\(mensagem)", UIImage(named:"alert"))
+        alertController.style.cornerRadius = 10
+        let defButton                   = KOAlertButton(.default, title:"\(botao)")
+        defButton.backgroundColor       = UIColor.black
+        defButton.titleColor            = UIColor.white
+        defButton.cornerRadius = 10
+        alertController.addAction(defButton) {
+            self.stopAnimating()
+        }
+        self.present(alertController, animated: true){}
+    }
+    
     @IBAction func loginPressed(_ sender: Any) {
-        
-        
         self.startAnimating()
-        
+        if(self.cpfField.text! == "" || self.senhaField.text! == ""){
+            self.mostraMensagem(titulo: LoginViewController.erroSemTitulo, mensagem: LoginViewController.erroSemMensagem, botao: LoginViewController.erroBotao)
+            return
+        }
         var request = URLRequest(url: URL(string: "https://registra.pontofopag.com.br/")!)
         request.httpMethod = "POST"
         var string = [String : String]()
-        string = ["OrigemRegistro": "RE","Situacao": "I","UserName": "083.441.709-07","Password": "jsbvt9","Lembrarme": "false","tipo": "1"]
+        string = ["OrigemRegistro": "RE","Situacao": "I","UserName": "\(self.cpfField.text!)","Password": "\(self.senhaField.text!)","Lembrarme": "false","tipo": "1"]
+        print(string)
         let enconding = URLEncoding.queryString
         request.addValue("https://registra.pontofopag.com.br/", forHTTPHeaderField: "Referer")
         request.addValue("https://registra.pontofopag.com.br", forHTTPHeaderField: "Origin")
         request.addValue("1", forHTTPHeaderField: "Upgrade-Insecure-Requests")
         request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.addValue("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.79 Safari/537.36 Edge/14.14393", forHTTPHeaderField: "User-Agent")
-        
         request = try! enconding.encode(request, with: string)
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {                                                 // check for fundamental networking error
                 print("error=\(error)")
                 OperationQueue.main.addOperation{
-                    self.stopAnimating()
-                    
+                    self.mostraMensagem(titulo: LoginViewController.erroTitulo, mensagem: LoginViewController.erroMensagem, botao: LoginViewController.erroBotao)
                 }
                 print("Erro chamada")
                 return
@@ -77,23 +117,23 @@ class LoginViewController: UIViewController {
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
                 OperationQueue.main.addOperation{
-                    self.stopAnimating()
+                    self.mostraMensagem(titulo: LoginViewController.erroTitulo, mensagem: LoginViewController.erroMensagem, botao: LoginViewController.erroBotao)
                 }
                 print("Problema Conexão")
                 return
-                
             }
             self.responseString = String(data: data, encoding: .utf8)!
+            print(self.responseString)
             if(self.responseString.range(of:"CPF inv&#225;lido") != nil){
                 OperationQueue.main.addOperation{
-                    self.stopAnimating()
+                    self.mostraMensagem(titulo: LoginViewController.erroCpfTitulo, mensagem: LoginViewController.erroCpfMensagem, botao: LoginViewController.erroBotao)
                 }
                 print("CPF ERRADo")
                 return
             }
             else if(self.responseString.range(of:"CPF n&#227;o encontrado ou senha incorreta.") != nil){
                 OperationQueue.main.addOperation{
-                    self.stopAnimating()
+                    self.mostraMensagem(titulo: LoginViewController.erroSenhaTitulo, mensagem: LoginViewController.erroSenhaMensagem, botao: LoginViewController.erroBotao)
                 }
                 print("Senha errad")
                 return
@@ -101,31 +141,15 @@ class LoginViewController: UIViewController {
             else{
                 OperationQueue.main.addOperation{
                     self.stopAnimating()
+                    UserDefaults.standard.set(self.cpfField.text!.trimmingCharacters(in: CharacterSet.whitespaces), forKey: "cpf")
+                    UserDefaults.standard.set(self.senhaField.text!, forKey: "senha")
                     self.performSegue(withIdentifier: "menuSegue", sender: nil)
                 }
-                
             }
-            
-            
-            
-            
-            
-            
         }
         task.resume()
- 
     }
     
-    @IBAction func valueChanged(_ sender: Any) {
-        if((self.cpfField.text?.isEmpty)!){
-            let cpfArray = Array(self.cpfField.text!)
-            for elements in cpfArray{
-                //self.
-            }
-        }
-        
-        
-    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "menuSegue"){
             let vc = segue.destination as! ViewController
@@ -134,6 +158,7 @@ class LoginViewController: UIViewController {
     }
     
 }
+
 extension UITextField {
     func setLeftPaddingPoints(_ amount:CGFloat){
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
@@ -145,4 +170,25 @@ extension UITextField {
         self.rightView = paddingView
         self.rightViewMode = .always
     }
+}
+extension UIImage {
+    
+    public func maskWithColor(color: UIColor) -> UIImage {
+        
+        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+        let context = UIGraphicsGetCurrentContext()!
+        
+        let rect = CGRect(origin: CGPoint.zero, size: size)
+        
+        color.setFill()
+        self.draw(in: rect)
+        
+        context.setBlendMode(.sourceIn)
+        context.fill(rect)
+        
+        let resultImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return resultImage
+    }
+    
 }

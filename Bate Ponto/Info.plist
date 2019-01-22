@@ -27,7 +27,13 @@
     <key>NSAppTransportSecurity</key>
     <dict>
         <key>NSAllowsArbitraryLoads</key> <true/>
-    </dict> 
+    </dict>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string> location permission text.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string> location permission text.</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string> location permission text.</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

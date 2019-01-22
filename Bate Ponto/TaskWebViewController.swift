@@ -16,7 +16,7 @@ class TaskWebViewController: UIViewController, WKNavigationDelegate {
     let navBar = SPFakeBarView(style: .stork)
     let webView = WKWebView()
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
-    
+    var webLink = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +32,21 @@ class TaskWebViewController: UIViewController, WKNavigationDelegate {
         self.navBar.titleLabel.text = "TaskWeb"
         self.navBar.leftButton.setTitle("Cancel", for: .normal)
         self.navBar.leftButton.setTitleColor(.red, for: .normal)
-        
+        self.navBar.leftButton.setTitleColor(.red, for: .highlighted)
         self.navBar.leftButton.addTarget(self, action: #selector(self.dismissAction), for: .touchUpInside)
         self.view.addSubview(self.navBar)
-        webView.load(URLRequest(url: URL(string: "https://taskweb.db1.com.br/#/")!))
+        if(webLink != ""){
+            webView.loadHTMLString(self.webLink, baseURL: nil)
+        }else{
+            print("to carregando a task")
+            webView.load(URLRequest(url: URL(string: "https://taskweb.db1.com.br/#/")!))
+        }
         self.updateLayout(with: self.view.frame.size)
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        print("olha eu aqui vo da refresh")
+    }
     override public func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         coordinator.animate(alongsideTransition: { (contex) in
@@ -64,18 +72,17 @@ class TaskWebViewController: UIViewController, WKNavigationDelegate {
     }
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("terminai kd")
+        /*
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.width
         
+        var scriptContent = "var meta = document.createElement('meta');"
+        scriptContent += "meta.name='viewport';"
+        scriptContent += "meta.content='\(screenWidth)';"
+        scriptContent += "document.getElementsByTagName('head')[0].appendChild(meta);"
         
-        webView.evaluateJavaScript("document.getElementById('usuario').value = 'LUCAS.BERNARDES';") { (result, error) in
-            if let result = result {
-                print(result)
-            }
-        }
-        webView.evaluateJavaScript("document.getElementById('senha').value = 'jsbvt9';") { (result, error) in
-            if let result = result {
-                print(result)
-            }
-        }
+        webView.evaluateJavaScript(scriptContent, completionHandler: nil)
+        */
  
     }
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
