@@ -106,6 +106,7 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate, SPPermis
     var dialogComment: String {
         return "Para bater o ponto é necessário estar a 300m da empresa, caso optando pela opção de localização no background o aplicativo irá avisar assim que for possível bater o ponto."
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         if(SPPermission.isAllow(.locationAlways)){
             self.allowSegue = true

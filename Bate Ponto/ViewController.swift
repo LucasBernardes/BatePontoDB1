@@ -47,6 +47,7 @@ class ViewController: UIViewController, UICollectionViewDataSource,WKNavigationD
     var senhaString = ""
     var currentLongitude = 0.0
     var currentLatitude = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registrarButton.layer.cornerRadius = 10
@@ -297,7 +298,7 @@ class ViewController: UIViewController, UICollectionViewDataSource,WKNavigationD
                     }
                 }
                 else{
-                    print("Nao deu nada!")
+                    print("Nao deu nada!")///colocar errod e conexao
                 }
             }
             task.resume()
@@ -467,6 +468,7 @@ extension ViewController: CLLocationManagerDelegate {
         if let lat = locations.last?.coordinate.latitude, let long = locations.last?.coordinate.longitude {
             self.currentLatitude = lat
             self.currentLongitude = long
+            
         } else {
             print("No coordinates")
         }
