@@ -19,6 +19,10 @@
 		7A9D6FEF21F0BD7C00F5B426 /* Bate_PontoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9D6FEE21F0BD7C00F5B426 /* Bate_PontoUITests.swift */; };
 		7A9D6FFD21F0BE6400F5B426 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9D6FFC21F0BE6400F5B426 /* UserModel.swift */; };
 		7A9D6FFF21F0BF8200F5B426 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9D6FFE21F0BF8200F5B426 /* UserViewModel.swift */; };
+		7AFAC02921F89F00004528A9 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFAC02821F89F00004528A9 /* UserSettings.swift */; };
+		7AFAC02B21F8C0B0004528A9 /* color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AFAC02A21F8C0B0004528A9 /* color.xcassets */; };
+		7AFAC02E21F8C1EE004528A9 /* UIColor+Named.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFAC02D21F8C1EE004528A9 /* UIColor+Named.swift */; };
+		7AFAC03021F8C762004528A9 /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFAC02F21F8C762004528A9 /* UIView+Gradient.swift */; };
 		95C86F54459E90464F7FFE4D /* Pods_Bate_Ponto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D37D8A5D87763B25F237941 /* Pods_Bate_Ponto.framework */; };
 		F71E092351F632A346A3659F /* Pods_Bate_PontoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEE9AAED72641A13AECE58AD /* Pods_Bate_PontoUITests.framework */; };
 /* End PBXBuildFile section */
@@ -63,6 +67,10 @@
 		7A9D6FF021F0BD7C00F5B426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A9D6FFC21F0BE6400F5B426 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		7A9D6FFE21F0BF8200F5B426 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		7AFAC02821F89F00004528A9 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		7AFAC02A21F8C0B0004528A9 /* color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = color.xcassets; sourceTree = "<group>"; };
+		7AFAC02D21F8C1EE004528A9 /* UIColor+Named.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Named.swift"; sourceTree = "<group>"; };
+		7AFAC02F21F8C762004528A9 /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
 		91B4C866DF4B6FE0CAD2D9F3 /* Pods-Bate Ponto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bate Ponto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bate Ponto/Pods-Bate Ponto.debug.xcconfig"; sourceTree = "<group>"; };
 		99F43BD2504CE49F6DCFB745 /* Pods-Bate PontoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bate PontoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bate PontoTests/Pods-Bate PontoTests.release.xcconfig"; sourceTree = "<group>"; };
 		BEBF473400EADD76A7D332D2 /* Pods-Bate Ponto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bate Ponto.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bate Ponto/Pods-Bate Ponto.release.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +140,7 @@
 		7A9D6FCD21F0BD6F00F5B426 /* Bate Ponto */ = {
 			isa = PBXGroup;
 			children = (
+				7AFAC02C21F8C1D3004528A9 /* Extension */,
 				7A9D6FCE21F0BD6F00F5B426 /* AppDelegate.swift */,
 				7A9D6FD021F0BD6F00F5B426 /* ViewController.swift */,
 				7A9D6FFC21F0BE6400F5B426 /* UserModel.swift */,
@@ -139,9 +148,11 @@
 				7A2D15EB21F24B6300A0B86B /* TaskWebViewController.swift */,
 				7A2D15ED21F260A700A0B86B /* LoginViewController.swift */,
 				7A9D6FD221F0BD6F00F5B426 /* Main.storyboard */,
+				7AFAC02A21F8C0B0004528A9 /* color.xcassets */,
 				7A9D6FD521F0BD7B00F5B426 /* Assets.xcassets */,
 				7A9D6FD721F0BD7B00F5B426 /* LaunchScreen.storyboard */,
 				7A9D6FDA21F0BD7B00F5B426 /* Info.plist */,
+				7AFAC02821F89F00004528A9 /* UserSettings.swift */,
 			);
 			path = "Bate Ponto";
 			sourceTree = "<group>";
@@ -162,6 +173,15 @@
 				7A9D6FF021F0BD7C00F5B426 /* Info.plist */,
 			);
 			path = "Bate PontoUITests";
+			sourceTree = "<group>";
+		};
+		7AFAC02C21F8C1D3004528A9 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7AFAC02D21F8C1EE004528A9 /* UIColor+Named.swift */,
+				7AFAC02F21F8C762004528A9 /* UIView+Gradient.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		D473E6B9BDE675C04BA8EF97 /* Pods */ = {
@@ -286,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A9D6FD921F0BD7B00F5B426 /* LaunchScreen.storyboard in Resources */,
+				7AFAC02B21F8C0B0004528A9 /* color.xcassets in Resources */,
 				7A9D6FD621F0BD7B00F5B426 /* Assets.xcassets in Resources */,
 				7A9D6FD421F0BD6F00F5B426 /* Main.storyboard in Resources */,
 			);
@@ -416,9 +437,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A2D15EE21F260A700A0B86B /* LoginViewController.swift in Sources */,
+				7AFAC03021F8C762004528A9 /* UIView+Gradient.swift in Sources */,
 				7A9D6FD121F0BD6F00F5B426 /* ViewController.swift in Sources */,
 				7A9D6FFF21F0BF8200F5B426 /* UserViewModel.swift in Sources */,
+				7AFAC02E21F8C1EE004528A9 /* UIColor+Named.swift in Sources */,
 				7A2D15EC21F24B6300A0B86B /* TaskWebViewController.swift in Sources */,
+				7AFAC02921F89F00004528A9 /* UserSettings.swift in Sources */,
 				7A9D6FFD21F0BE6400F5B426 /* UserModel.swift in Sources */,
 				7A9D6FCF21F0BD6F00F5B426 /* AppDelegate.swift in Sources */,
 			);

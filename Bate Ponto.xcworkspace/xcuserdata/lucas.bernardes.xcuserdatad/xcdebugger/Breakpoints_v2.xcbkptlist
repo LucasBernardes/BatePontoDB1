@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bate Ponto/ViewController.swift"
-            timestampString = "569933872.906595"
+            timestampString = "569952121.9797961"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "totalDeHorasDoDia()"
             landmarkType = "7">
          </BreakpointContent>

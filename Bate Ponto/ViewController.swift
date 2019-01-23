@@ -16,12 +16,7 @@ import CoreLocation
 import KOAlertController
 
 class ViewController: UIViewController, UICollectionViewDataSource,WKNavigationDelegate, UICollectionViewDelegate {
-    
-    
-    
-    let vermelhoEscuro = UIColor(red: 252/255, green: 46/255, blue: 82/255, alpha: 1.0).cgColor
-    let vermelhoClaro = UIColor(red: 254/255, green: 86/255, blue: 49/255, alpha: 1.0).cgColor
-    let vermelhoClaroUIColor = UIColor(red: 252/255, green: 46/255, blue: 82/255, alpha: 1.0)
+
     var historico = [Historico]()
     var historicoHoje = [Historico]()
     let navBar = SPFakeBarView(style: .stork)
@@ -43,11 +38,9 @@ class ViewController: UIViewController, UICollectionViewDataSource,WKNavigationD
     var erroTitulo = "Problema na conexão!"
     var erroMensagem = "Houve um problema com os servidores e não foi possível executar esta ação"
     var erroBotao = "Compreendi"
-    var cpfString = ""
-    var senhaString = ""
     var currentLongitude = 0.0
     var currentLatitude = 0.0
-    
+    var userSettings = UserSettings()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registrarButton.layer.cornerRadius = 10
@@ -55,9 +48,9 @@ class ViewController: UIViewController, UICollectionViewDataSource,WKNavigationD
         self.horarioLabel.layer.masksToBounds = true
         self.logoutButton.layer.cornerRadius = 10
         self.horarioLabel.layer.cornerRadius = 10
-        self.progressView.progressTintColor = self.vermelhoClaroUIColor
+        self.progressView.progressTintColor = UIColor.vermelhoEscuro()
         self.progressView.transform = self.progressView.transform.scaledBy(x: 1, y: 6)
-        self.registrarButton.applyGradient(colors: [self.vermelhoEscuro,self.vermelhoClaro])
+        self.registrarButton.applyGradient(colors: [UIColor.vermelhoEscuro()!.cgColor,UIColor.vermelhoClaro()!.cgColor])
         self.horarioDoPonto.text = "Atual 0:00"
         self.activityIndicator.isHidden = true
         self.reloadActivityIndicator.isHidden = true
@@ -68,29 +61,18 @@ class ViewController: UIViewController, UICollectionViewDataSource,WKNavigationD
         self.progressView.layer.sublayers![1].cornerRadius = 3
         self.progressView.subviews[1].clipsToBounds = true
         self.progressView.clipsToBounds = true
-        self.cpfString = UserDefaults.standard.string(forKey: "cpf") ?? ""
-        self.senhaString = UserDefaults.standard.string(forKey: "senha") ?? ""
-        print(self.cpfString)
-        print(self.senhaString)
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        //locationManager.startUpdatingLocation()
+        locationManager.startUpdatingLocation()
         let url = URL(string: "https://registra.pontofopag.com.br/")
         let request = URLRequest(url: url!)
-        
-        
         requestWebsteLogin()
         _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(horarioAtual), userInfo: nil, repeats: true)
         _ = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(totalDeHorasDoDia), userInfo: nil, repeats: true)
         
     }
-    override func viewDidAppear(_ animated: Bool) {
-        //UIView.animate(views: self.collectionView!.orderedVisibleCells,
-        //              animations: animations, completion: {
-        //                print("mostrei")
-        //})
-    }
+
     @objc func horarioAtual(){
         let dateFormatter : DateFormatter = DateFormatter()
         //        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -215,8 +197,7 @@ class ViewController: UIViewController, UICollectionViewDataSource,WKNavigationD
         layer.frame = frame
         layer.startPoint = CGPoint(x: 0, y: 0.5)
         layer.endPoint = CGPoint(x: 1, y: 0.5)
-        layer.colors = [
-            self.vermelhoEscuro,self.vermelhoClaro]
+        layer.colors = [UIColor.vermelhoEscuro()!.cgColor,UIColor.vermelhoClaro()!.cgColor]
         return layer
     }
     
@@ -227,7 +208,7 @@ class ViewController: UIViewController, UICollectionViewDataSource,WKNavigationD
             var request = URLRequest(url: URL(string: "https://registra.pontofopag.com.br/")!)
             request.httpMethod = "POST"
             var string = [String : String]()
-            string = ["OrigemRegistro": "RE","Situacao": "I","UserName": "083.441.709-07","Password": "jsbvt9","Lembrarme": "false","tipo": "0"]
+            string = ["OrigemRegistro": "RE","Situacao": "I","UserName": self.userSettings.cpf,"Password": self.userSettings.senha,"Lembrarme": "false","tipo": "0"]
             var enconding = URLEncoding.queryString
             request.addValue("https://registra.pontofopag.com.br/", forHTTPHeaderField: "Referer")
             request.addValue("https://registra.pontofopag.com.br", forHTTPHeaderField: "Origin")
@@ -250,6 +231,30 @@ class ViewController: UIViewController, UICollectionViewDataSource,WKNavigationD
                     return
                 }
                 let responseString = String(data: data, encoding: .utf8)
+                OperationQueue.main.addOperation{
+                    self.endRegistrar()
+                    self.refreshPressed((Any).self)
+                    self.collectionView.reloadData()
+                    if(self.historico.count > 0 && self.historico.count % 2 != 0){
+                        self.status.textColor = .red
+                    }else{
+                        self.status.textColor = UIColor.groupTableViewBackground
+                    }
+                    self.totalDeHorasDoDia()
+                    let modal = TaskWebViewController()
+                    modal.webLink = responseString!
+                    let transitionDelegate = SPStorkTransitioningDelegate()
+                    modal.transitioningDelegate = transitionDelegate
+                    modal.modalPresentationStyle = .custom
+                    self.present(modal, animated: true, completion: nil)
+                }
+                OperationQueue.main.addOperation{
+                    UIView.animate(views: self.collectionView!.orderedVisibleCells,
+                                   animations: self.animations, completion: {
+                                    print("mostrei")
+                    })
+                }
+                /*
                 if((responseString?.contains("Chave de Seguran&#231;a"))!){
                     print("deu bom")
                     var dia = ""
@@ -274,32 +279,11 @@ class ViewController: UIViewController, UICollectionViewDataSource,WKNavigationD
                         self.htmlString = self.htmlString.stringByReplacingFirstOccurrenceOfString(target: "Data: </td>\r\n                    <td>", withString: "")
                         self.htmlString = self.htmlString.stringByReplacingFirstOccurrenceOfString(target: " &nbsp;", withString: "")
                     }
-                    OperationQueue.main.addOperation{
-                        self.endRegistrar()
-                        self.collectionView.reloadData()
-                        if(self.historico.count > 0 && self.historico.count % 2 != 0){
-                            self.status.textColor = .red
-                        }else{
-                            self.status.textColor = UIColor.groupTableViewBackground
-                        }
-                        self.totalDeHorasDoDia()
-                        let modal = TaskWebViewController()
-                        modal.webLink = responseString!
-                        let transitionDelegate = SPStorkTransitioningDelegate()
-                        modal.transitioningDelegate = transitionDelegate
-                        modal.modalPresentationStyle = .custom
-                        self.present(modal, animated: true, completion: nil)
-                    }
-                    OperationQueue.main.addOperation{
-                        UIView.animate(views: self.collectionView!.orderedVisibleCells,
-                                       animations: self.animations, completion: {
-                                        print("mostrei")
-                        })
-                    }
+                 
                 }
                 else{
                     print("Nao deu nada!")///colocar errod e conexao
-                }
+                }*/
             }
             task.resume()
         }
@@ -346,15 +330,12 @@ class ViewController: UIViewController, UICollectionViewDataSource,WKNavigationD
     
     @IBAction func refreshPressed(_ sender: Any) {
         //self.requestWebsteLogin()
-        self.cpfString = UserDefaults.standard.string(forKey: "cpf") ?? ""
-        self.senhaString = UserDefaults.standard.string(forKey: "senha") ?? ""
-        print(self.cpfString)
-        print(self.senhaString)
+        
         self.beginReload()
         var request = URLRequest(url: URL(string: "https://registra.pontofopag.com.br/")!)
         request.httpMethod = "POST"
         var string = [String : String]()
-        string = ["OrigemRegistro": "RE","Situacao": "I","UserName": "\(self.cpfString)","Password": "\(self.senhaString)","Lembrarme": "false","tipo": "1"]
+        string = ["OrigemRegistro": "RE","Situacao": "I","UserName": self.userSettings.cpf,"Password": self.userSettings.senha,"Lembrarme": "false","tipo": "1"]
         print(string)
         let enconding = URLEncoding.queryString
         request.addValue("https://registra.pontofopag.com.br/", forHTTPHeaderField: "Referer")
@@ -487,21 +468,7 @@ class horarioCollectionCell: UICollectionViewCell{
     
 }
 
-extension UIView
-{
-    func applyGradient(colors: [CGColor])
-    {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = colors
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
-        gradientLayer.frame = self.bounds
-        gradientLayer.cornerRadius = 10
-        self.layer.addSublayer(gradientLayer)
-        
-    }
-    
-}
+
 extension String
 {
     func stringByReplacingFirstOccurrenceOfString(

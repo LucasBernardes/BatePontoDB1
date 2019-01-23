@@ -30,10 +30,10 @@ class TaskWebViewController: UIViewController, WKNavigationDelegate {
         
         webView.navigationDelegate = self
         self.navBar.titleLabel.text = "TaskWeb"
-        self.navBar.leftButton.setTitle("Cancel", for: .normal)
-        self.navBar.leftButton.setTitleColor(.red, for: .normal)
-        self.navBar.leftButton.setTitleColor(.red, for: .highlighted)
-        self.navBar.leftButton.addTarget(self, action: #selector(self.dismissAction), for: .touchUpInside)
+        self.navBar.rightButton.setTitle("Fechar", for: .normal)
+        self.navBar.rightButton.setTitleColor(.red, for: .normal)
+        self.navBar.rightButton.setTitleColor(.red, for: .highlighted)
+        self.navBar.rightButton.addTarget(self, action: #selector(self.dismissAction), for: .touchUpInside)
         self.view.addSubview(self.navBar)
         if(webLink != ""){
             webView.loadHTMLString(self.webLink, baseURL: nil)

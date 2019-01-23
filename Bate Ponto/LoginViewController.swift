@@ -14,9 +14,7 @@ import KOAlertController
 import SPPermission
 
 class LoginViewController: UIViewController, CLLocationManagerDelegate, SPPermissionDialogDataSource, SPPermissionDialogColorSource{
-    let vermelhoEscuro = UIColor(red: 252/255, green: 46/255, blue: 82/255, alpha: 1.0).cgColor
-    let vermelhoClaro = UIColor(red: 254/255, green: 86/255, blue: 49/255, alpha: 1.0).cgColor
-    let vermelhoClaroUIColor = UIColor(red: 252/255, green: 46/255, blue: 82/255, alpha: 1.0)
+
     private var images = [UIImage.init(named: "location")!, UIImage.init(named: "notification")!]
     var responseString = ""
     var allowSegue = false
@@ -43,7 +41,7 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate, SPPermis
         super.viewDidLoad()
         self.activityIndicator.isHidden = true
         self.loginButton.layer.cornerRadius = 10
-        self.loginButton.applyGradient(colors: [self.vermelhoEscuro,self.vermelhoClaro])
+        self.loginButton.applyGradient(colors: [(UIColor.vermelhoEscuro()?.cgColor)!,(UIColor.vermelhoClaro()?.cgColor)!])
         self.cpfField.layer.cornerRadius = 10
         self.senhaField.layer.cornerRadius = 10
         self.activityIndicator.startAnimating()
