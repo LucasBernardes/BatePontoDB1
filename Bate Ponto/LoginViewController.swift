@@ -11,12 +11,15 @@ import AKMaskField
 import Alamofire
 import CoreLocation
 import KOAlertController
+import SPPermission
 
-class LoginViewController: UIViewController, CLLocationManagerDelegate {
+class LoginViewController: UIViewController, CLLocationManagerDelegate, SPPermissionDialogDataSource, SPPermissionDialogColorSource{
     let vermelhoEscuro = UIColor(red: 252/255, green: 46/255, blue: 82/255, alpha: 1.0).cgColor
     let vermelhoClaro = UIColor(red: 254/255, green: 86/255, blue: 49/255, alpha: 1.0).cgColor
     let vermelhoClaroUIColor = UIColor(red: 252/255, green: 46/255, blue: 82/255, alpha: 1.0)
+    private var images = [UIImage.init(named: "location")!, UIImage.init(named: "notification")!]
     var responseString = ""
+    var allowSegue = false
     public static let erroTitulo = "Problema na conexão!"
     public static let erroCpfTitulo = "Problema com o CPF"
     public static let erroCpfMensagem = "O CPF informado não foi encontrado na base de dados, por favor verifique o valor inserido"
@@ -25,6 +28,8 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
     public static let erroSenhaTitulo = "Problema com a senha ou CPF"
     public static let erroSenhaMensagem = "A Senha não confere ou o CPF informado não foi encontrado na base de dados, por favor verifique os valores inseridos"
     public static let erroMensagem = "Houve um problema com os servidores e não foi possível executar esta ação"
+    public static let erroLocationMensagem = "Para bater o ponto é necessário saber se você se encontra dentro da empresa, para isso o aplicativo necessita utlizar o localizador, por favor atorize sua utilização"
+    public static let erroLocationTitulo = "O aplicativo precisa da sua localização"
     public static let erroBotao = "Compreendi"
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var loginButton: UIButton!
@@ -48,16 +53,75 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
         self.cpfField.maskExpression = "{ddd}.{ddd}.{ddd}-{dd}"
         self.cpfField.maskTemplate = "              "
         locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
+        //locationManager.requestAlwaysAuthorization()
         self.poweredImage.image = self.poweredImage.image?.maskWithColor(color: .lightGray)
-        UIApplication.shared.cancelAllLocalNotifications()
-        let locattionnotification = UILocalNotification()
-        locattionnotification.alertBody = "Voce chegou na DB1"
-        locattionnotification.regionTriggersOnce = false
-        locattionnotification.region = CLCircularRegion(center: CLLocationCoordinate2D(latitude:
-            -23.4192021, longitude: -51.9356276), radius: 300.0, identifier: "DB1")
-        UIApplication.shared.scheduleLocalNotification(locattionnotification)
         
+        
+    }
+    
+    @objc func name(for permission: SPPermissionType) -> String?{
+        if(permission.rawValue == 8){
+            return "Local"
+        }
+        else if(permission.rawValue == 9){
+            return "Chegada na DB1"
+        }else{
+            return "Notificação"
+        }
+    }
+    
+    @objc func description(for permission: SPPermissionType) -> String?{
+        if(permission.rawValue == 8){
+            return "Necessário para bater o ponto"
+        }
+        else if(permission.rawValue == 9){
+            return "Opcional para aviso de chegada"
+        }else{
+            return "Notificação de chegada/saída da empresa"
+        }
+    }
+    
+    @objc public func image(for permission: SPPermissionType) -> UIImage?{
+        if(permission.rawValue == 8){
+            return UIImage.init(named: "local")
+        }
+        else if(permission.rawValue == 9){
+            return UIImage.init(named: "location")
+        }else{
+            return UIImage.init(named: "notification")
+        }
+    }
+    
+    var baseColor: UIColor {
+        return UIColor.red
+    }
+    
+    var dialogSubtitle: String {
+        return "A permissão da localização atual dentro do app é obrigatória para bater o ponto, já a localização no background só é necessária para o aviso automático de chegada na empresa!"
+    }
+    
+    var dialogTitle: String {
+        return "Lista de Permissão"
+    }
+    var dialogComment: String {
+        return "Para bater o ponto é necessário estar a 300m da empresa, caso optando pela opção de localização no background o aplicativo irá avisar assim que for possível bater o ponto."
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        if(SPPermission.isAllow(.locationAlways)){
+            self.allowSegue = true
+            UIApplication.shared.cancelAllLocalNotifications()
+            let locattionnotification = UILocalNotification()
+            locattionnotification.alertBody = "Voce chegou na DB1"
+            locattionnotification.regionTriggersOnce = false
+            locattionnotification.region = CLCircularRegion(center: CLLocationCoordinate2D(latitude:
+                -23.4192021, longitude: -51.9356276), radius: 300.0, identifier: "DB1")
+            UIApplication.shared.scheduleLocalNotification(locattionnotification)
+        }
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        if(!SPPermission.isAllow(.locationAlways) || !SPPermission.isAllow(.locationWhenInUse)){
+            SPPermission.Dialog.request(with: [.locationWhenInUse, .locationAlways, .notification], on: self, dataSource: self, colorSource: self)
+        }
     }
     
     func startAnimating(){
@@ -82,11 +146,19 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
         defButton.cornerRadius = 10
         alertController.addAction(defButton) {
             self.stopAnimating()
+            if(titulo == LoginViewController.erroLocationTitulo){
+                SPPermission.Dialog.request(with: [.locationWhenInUse, .locationAlways, .notification], on: self, dataSource: self, colorSource: self)
+            }
         }
         self.present(alertController, animated: true){}
     }
     
     @IBAction func loginPressed(_ sender: Any) {
+        if(!SPPermission.isAllow(.locationAlways) || !SPPermission.isAllow(.locationWhenInUse)){
+            self.mostraMensagem(titulo: LoginViewController.erroLocationTitulo, mensagem: LoginViewController.erroLocationMensagem, botao: LoginViewController.erroBotao)
+            return
+        }
+        
         self.startAnimating()
         if(self.cpfField.text! == "" || self.senhaField.text! == ""){
             self.mostraMensagem(titulo: LoginViewController.erroSemTitulo, mensagem: LoginViewController.erroSemMensagem, botao: LoginViewController.erroBotao)

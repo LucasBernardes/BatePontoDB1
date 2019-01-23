@@ -1,0 +1,40 @@
+PODS:
+  - AKMaskField (2.0.3)
+  - Alamofire (4.8.1)
+  - KOAlertController (1.0.2)
+  - SparrowKit (1.4)
+  - SPPermission (2.8)
+  - SPStorkController (1.2)
+  - ViewAnimator (2.2.2)
+
+DEPENDENCIES:
+  - AKMaskField
+  - Alamofire
+  - KOAlertController (~> 1.0.2)
+  - SparrowKit
+  - SPPermission
+  - SPStorkController
+  - ViewAnimator
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AKMaskField
+    - Alamofire
+    - KOAlertController
+    - SparrowKit
+    - SPPermission
+    - SPStorkController
+    - ViewAnimator
+
+SPEC CHECKSUMS:
+  AKMaskField: b6d147524813e62cd3f15475fa2200ce7a3d2620
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  KOAlertController: e168f7fed3599ebb59e4a3856427d03cf7a247d1
+  SparrowKit: f870970d54344688012e147a6816d99ccdc2f280
+  SPPermission: e9bbc29862ed2221028a12ada2ca86395e3dad87
+  SPStorkController: c7f7480a23e1dd4d2c9440496f9798abf8fe8128
+  ViewAnimator: 6eaa112663b6a2d9e6b2573df65b416dd051cbe4
+
+PODFILE CHECKSUM: 93e02913e1af9f33f4004d93fd23ed7f87bd7b5f
+
+COCOAPODS: 1.5.3

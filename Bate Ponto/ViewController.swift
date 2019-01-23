@@ -274,6 +274,7 @@ class ViewController: UIViewController, UICollectionViewDataSource,WKNavigationD
                         self.htmlString = self.htmlString.stringByReplacingFirstOccurrenceOfString(target: " &nbsp;", withString: "")
                     }
                     OperationQueue.main.addOperation{
+                        self.endRegistrar()
                         self.collectionView.reloadData()
                         if(self.historico.count > 0 && self.historico.count % 2 != 0){
                             self.status.textColor = .red
@@ -287,6 +288,12 @@ class ViewController: UIViewController, UICollectionViewDataSource,WKNavigationD
                         modal.transitioningDelegate = transitionDelegate
                         modal.modalPresentationStyle = .custom
                         self.present(modal, animated: true, completion: nil)
+                    }
+                    OperationQueue.main.addOperation{
+                        UIView.animate(views: self.collectionView!.orderedVisibleCells,
+                                       animations: self.animations, completion: {
+                                        print("mostrei")
+                        })
                     }
                 }
                 else{
