@@ -15,7 +15,7 @@ protocol LoginViewModelProtocol{
 
 }
 
-class LoginViewModel: NSObject{
+class LoginViewModel{
     var delegate: LoginViewModelProtocol?
     var htmlResponse: String?
     
@@ -25,7 +25,6 @@ class LoginViewModel: NSObject{
             delegate?.onValidateLogin(error: true, erroTitulo: Strings.erroLocationTitulo, erroMensagem: Strings.erroLocationMensagem, htmlString: "")
             return false
         }
-        
         if(user.cpf == "" || user.senha == ""){
             delegate?.onValidateLogin(error: true, erroTitulo: Strings.erroSemTitulo, erroMensagem: Strings.erroSemMensagem, htmlString: "")
             return false

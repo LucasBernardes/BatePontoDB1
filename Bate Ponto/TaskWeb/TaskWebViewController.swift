@@ -13,40 +13,37 @@ import SPStorkController
 
 class TaskWebViewController: UIViewController, WKNavigationDelegate {
     
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     let navBar = SPFakeBarView(style: .stork)
     let webView = WKWebView()
-    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
-    var webLink = ""
+    private var viewModel: TaskWebViewModel!
+    var webLink = "https://taskweb.db1.com.br/#/"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        prepareView()
+        viewModel = TaskWebViewModel()
+        viewModel.delegate = self
+        webView.navigationDelegate = self
+        viewModel.loadView(link: self.webLink)
+    }
+    
+    
+   
+    
+    func prepareView(){
         self.view.backgroundColor = UIColor.white
         self.modalPresentationCapturesStatusBarAppearance = true
-        
-        
-        //self.tableView.contentInset.bottom = self.safeArea.bottom
-        //self.tableView.scrollIndicatorInsets.bottom = self.safeArea.bottom
         self.view.addSubview(self.webView)
-        
-        webView.navigationDelegate = self
         self.navBar.titleLabel.text = "TaskWeb"
         self.navBar.rightButton.setTitle("Fechar", for: .normal)
         self.navBar.rightButton.setTitleColor(.red, for: .normal)
         self.navBar.rightButton.setTitleColor(.red, for: .highlighted)
         self.navBar.rightButton.addTarget(self, action: #selector(self.dismissAction), for: .touchUpInside)
         self.view.addSubview(self.navBar)
-        if(webLink != ""){
-            webView.loadHTMLString(self.webLink, baseURL: nil)
-        }else{
-            print("to carregando a task")
-            webView.load(URLRequest(url: URL(string: "https://taskweb.db1.com.br/#/")!))
-        }
         self.updateLayout(with: self.view.frame.size)
     }
-    override func viewWillAppear(_ animated: Bool) {
-        
-        print("olha eu aqui vo da refresh")
-    }
+    
     override public func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         coordinator.animate(alongsideTransition: { (contex) in
@@ -85,9 +82,14 @@ class TaskWebViewController: UIViewController, WKNavigationDelegate {
         */
  
     }
-    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        print("kddd ta indo")
+    
+}
+extension TaskWebViewController: TaskWebViewModelProtocol{
+    func loadViewProtocol(link: String?) {
+        webView.loadHTMLString(link!, baseURL: nil)
     }
+    
+    
     
 }
 

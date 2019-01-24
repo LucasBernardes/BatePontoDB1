@@ -119,7 +119,7 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "menuSegue"){
-            let vc = segue.destination as! ViewController
+            let vc = segue.destination as! MenuViewController
             vc.htmlString = self.responseString
         }
     }

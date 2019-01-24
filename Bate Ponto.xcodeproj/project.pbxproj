@@ -11,7 +11,7 @@
 		7A2D15EC21F24B6300A0B86B /* TaskWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2D15EB21F24B6300A0B86B /* TaskWebViewController.swift */; };
 		7A2D15EE21F260A700A0B86B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2D15ED21F260A700A0B86B /* LoginViewController.swift */; };
 		7A9D6FCF21F0BD6F00F5B426 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9D6FCE21F0BD6F00F5B426 /* AppDelegate.swift */; };
-		7A9D6FD121F0BD6F00F5B426 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9D6FD021F0BD6F00F5B426 /* ViewController.swift */; };
+		7A9D6FD121F0BD6F00F5B426 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9D6FD021F0BD6F00F5B426 /* MenuViewController.swift */; };
 		7A9D6FD421F0BD6F00F5B426 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A9D6FD221F0BD6F00F5B426 /* Main.storyboard */; };
 		7A9D6FD621F0BD7B00F5B426 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A9D6FD521F0BD7B00F5B426 /* Assets.xcassets */; };
 		7A9D6FD921F0BD7B00F5B426 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A9D6FD721F0BD7B00F5B426 /* LaunchScreen.storyboard */; };
@@ -24,6 +24,8 @@
 		7AFAC03021F8C762004528A9 /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFAC02F21F8C762004528A9 /* UIView+Gradient.swift */; };
 		7AFAC03321F8D377004528A9 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFAC03221F8D377004528A9 /* LoginViewModel.swift */; };
 		7AFAC03621F9D19F004528A9 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFAC03521F9D19F004528A9 /* Strings.swift */; };
+		7AFAC03921F9D5D1004528A9 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFAC03821F9D5D1004528A9 /* MenuViewModel.swift */; };
+		7AFAC03C21FA10C3004528A9 /* TaskWebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFAC03B21FA10C3004528A9 /* TaskWebViewModel.swift */; };
 		95C86F54459E90464F7FFE4D /* Pods_Bate_Ponto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D37D8A5D87763B25F237941 /* Pods_Bate_Ponto.framework */; };
 		F71E092351F632A346A3659F /* Pods_Bate_PontoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEE9AAED72641A13AECE58AD /* Pods_Bate_PontoUITests.framework */; };
 /* End PBXBuildFile section */
@@ -55,7 +57,7 @@
 		7A2D15ED21F260A700A0B86B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7A9D6FCB21F0BD6F00F5B426 /* Bate Ponto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bate Ponto.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A9D6FCE21F0BD6F00F5B426 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7A9D6FD021F0BD6F00F5B426 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7A9D6FD021F0BD6F00F5B426 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		7A9D6FD321F0BD6F00F5B426 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7A9D6FD521F0BD7B00F5B426 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A9D6FD821F0BD7B00F5B426 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -73,6 +75,8 @@
 		7AFAC02F21F8C762004528A9 /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
 		7AFAC03221F8D377004528A9 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		7AFAC03521F9D19F004528A9 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		7AFAC03821F9D5D1004528A9 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		7AFAC03B21FA10C3004528A9 /* TaskWebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskWebViewModel.swift; sourceTree = "<group>"; };
 		91B4C866DF4B6FE0CAD2D9F3 /* Pods-Bate Ponto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bate Ponto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bate Ponto/Pods-Bate Ponto.debug.xcconfig"; sourceTree = "<group>"; };
 		99F43BD2504CE49F6DCFB745 /* Pods-Bate PontoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bate PontoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bate PontoTests/Pods-Bate PontoTests.release.xcconfig"; sourceTree = "<group>"; };
 		BEBF473400EADD76A7D332D2 /* Pods-Bate Ponto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bate Ponto.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bate Ponto/Pods-Bate Ponto.release.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 		7A9D6FCD21F0BD6F00F5B426 /* Bate Ponto */ = {
 			isa = PBXGroup;
 			children = (
+				7AFAC03A21FA10A8004528A9 /* TaskWeb */,
 				7AFAC03721F9D309004528A9 /* Menu Principial */,
 				7AFAC03421F9D17D004528A9 /* Constrants */,
 				7AFAC03121F8D350004528A9 /* Login */,
@@ -205,10 +210,19 @@
 		7AFAC03721F9D309004528A9 /* Menu Principial */ = {
 			isa = PBXGroup;
 			children = (
-				7A9D6FD021F0BD6F00F5B426 /* ViewController.swift */,
-				7A2D15EB21F24B6300A0B86B /* TaskWebViewController.swift */,
+				7A9D6FD021F0BD6F00F5B426 /* MenuViewController.swift */,
+				7AFAC03821F9D5D1004528A9 /* MenuViewModel.swift */,
 			);
 			path = "Menu Principial";
+			sourceTree = "<group>";
+		};
+		7AFAC03A21FA10A8004528A9 /* TaskWeb */ = {
+			isa = PBXGroup;
+			children = (
+				7A2D15EB21F24B6300A0B86B /* TaskWebViewController.swift */,
+				7AFAC03B21FA10C3004528A9 /* TaskWebViewModel.swift */,
+			);
+			path = TaskWeb;
 			sourceTree = "<group>";
 		};
 		D473E6B9BDE675C04BA8EF97 /* Pods */ = {
@@ -466,8 +480,10 @@
 				7A2D15EE21F260A700A0B86B /* LoginViewController.swift in Sources */,
 				7AFAC03621F9D19F004528A9 /* Strings.swift in Sources */,
 				7AFAC03021F8C762004528A9 /* UIView+Gradient.swift in Sources */,
-				7A9D6FD121F0BD6F00F5B426 /* ViewController.swift in Sources */,
+				7A9D6FD121F0BD6F00F5B426 /* MenuViewController.swift in Sources */,
 				7AFAC02E21F8C1EE004528A9 /* UIColor+Named.swift in Sources */,
+				7AFAC03921F9D5D1004528A9 /* MenuViewModel.swift in Sources */,
+				7AFAC03C21FA10C3004528A9 /* TaskWebViewModel.swift in Sources */,
 				7A2D15EC21F24B6300A0B86B /* TaskWebViewController.swift in Sources */,
 				7AFAC02921F89F00004528A9 /* UserSettings.swift in Sources */,
 				7A9D6FFD21F0BE6400F5B426 /* UserModel.swift in Sources */,

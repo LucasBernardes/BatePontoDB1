@@ -21,4 +21,7 @@ struct Strings{
     public static let erroLocationTitulo = "O aplicativo precisa da sua localização"
     public static let erroBotao = "Compreendi"
     
+    public static let erroDistanciaTitulo = "Você está muito longe!"
+    public static let erroDistanciaMensagem = "Sua atual localização aparenta muito distante da sede da DB1, por favor fique no mínimo uma distância de 1 quadra das instalações"
+    
 }
