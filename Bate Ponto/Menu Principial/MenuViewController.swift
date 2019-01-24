@@ -235,15 +235,18 @@ extension MenuViewController: MenuViewModelProtocol{
         
     }
     func showOverView(html: String) {
+        self.presentView(html: html)
+    }
+    
+    @objc func presentView(html: String){
         let modal = TaskWebViewController()
-        if(html != ""){
-            modal.webLink = html
-        }
+        modal.webLink = html
         let transitionDelegate = SPStorkTransitioningDelegate()
         modal.transitioningDelegate = transitionDelegate
         modal.modalPresentationStyle = .custom
-        present(modal, animated: true, completion: nil)
+        self.present(modal, animated: true, completion: nil)
     }
+    
     func animateView() {
         UIView.animate(views: self.collectionView!.orderedVisibleCells,
                        animations: self.animations, completion: {
