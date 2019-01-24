@@ -329,8 +329,6 @@ class ViewController: UIViewController, UICollectionViewDataSource,WKNavigationD
     }
     
     @IBAction func refreshPressed(_ sender: Any) {
-        //self.requestWebsteLogin()
-        
         self.beginReload()
         var request = URLRequest(url: URL(string: "https://registra.pontofopag.com.br/")!)
         request.httpMethod = "POST"
@@ -350,7 +348,7 @@ class ViewController: UIViewController, UICollectionViewDataSource,WKNavigationD
                 OperationQueue.main.addOperation{
                     self.mostraMensagem(titulo: self.erroTitulo, mensagem: self.erroMensagem, botao: self.erroBotao)
                 }
-                print("Erro chamada")
+                //print("Erro chamada")
                 return
             }
             
@@ -359,23 +357,23 @@ class ViewController: UIViewController, UICollectionViewDataSource,WKNavigationD
                 OperationQueue.main.addOperation{
                     self.mostraMensagem(titulo: self.erroTitulo, mensagem: self.erroMensagem, botao: self.erroBotao)
                 }
-                print("Problema Conexão")
+                //print("Problema Conexão")
                 return
             }
             self.htmlString = String(data: data, encoding: .utf8)!
             
             if(self.htmlString.range(of:"CPF inv&#225;lido") != nil){
                 OperationQueue.main.addOperation{
-                    self.mostraMensagem(titulo: LoginViewController.erroCpfTitulo, mensagem: LoginViewController.erroCpfMensagem, botao: self.erroBotao)
+                    self.mostraMensagem(titulo: Strings.erroCpfTitulo, mensagem: Strings.erroCpfMensagem, botao: self.erroBotao)
                 }
-                print("CPF ERRADo")
+                //print("CPF ERRADo")
                 return
             }
             else if(self.htmlString.range(of:"CPF n&#227;o encontrado ou senha incorreta.") != nil){
                 OperationQueue.main.addOperation{
-                    self.mostraMensagem(titulo: LoginViewController.erroSenhaTitulo, mensagem: LoginViewController.erroSenhaMensagem, botao: self.erroBotao)
+                    self.mostraMensagem(titulo: Strings.erroSenhaTitulo, mensagem: Strings.erroSenhaMensagem, botao: self.erroBotao)
                 }
-                print("Senha errad")
+                //print("Senha errad")
                 return
             }
             else{

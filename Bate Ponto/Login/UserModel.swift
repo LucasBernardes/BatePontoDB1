@@ -12,9 +12,9 @@ struct User{
     var cpf: String
     var senha: String
     
-    init(user: User) {
-        cpf = user.cpf ?? ""
-        senha = user.senha ?? ""
+    init(cpf: String, senha: String) {
+        self.cpf = cpf
+        self.senha = senha
     }
 }
 class Historico{
