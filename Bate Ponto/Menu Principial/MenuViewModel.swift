@@ -78,6 +78,10 @@ class MenuViewModel: NSObject{
                 self.delegate?.onValidateAtuando(erro: false, atuando: false)
             }
         }
+        OperationQueue.main.addOperation {
+            self.delegate?.animateView()
+            return
+        }
     }
     
     func extractProgressAndTime(historicoHoje: [Historico]){
@@ -141,9 +145,9 @@ class MenuViewModel: NSObject{
                 return
             }
             else{
-                OperationQueue.main.addOperation{
-                    self.delegate?.onValidateReload(error: false, erroTitulo: Strings.erroSenhaTitulo, erroMensagem: Strings.erroSenhaMensagem, htmlString: responseString)
-                    
+                OperationQueue.main.addOperation {
+                    self.delegate?.onValidateReload(error: false, erroTitulo: "", erroMensagem: "", htmlString: responseString)
+                    self.extractHistoricoFromHtml(html: responseString)
                 }
                 OperationQueue.main.addOperation {
                     self.delegate?.animateView()
@@ -153,19 +157,20 @@ class MenuViewModel: NSObject{
         }
         task.resume()
     }
-    
+    func preparaBatePonto(){
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        locationManager.startUpdatingLocation()
+        self.locationManager.requestLocation()
+    }
     func batePonto(user: User){
         if(podeBaterPonto()){
-            var request = URLRequest(url: URL(string: "https://registra.pontofopag.com.br/")!)
+            var request = URLRequest(url: URL(string: Strings.pontofopagUrl)!)
             request.httpMethod = "POST"
             var string = [String : String]()
             string = ["OrigemRegistro": "RE","Situacao": "I","UserName": user.cpf,"Password": user.senha,"Lembrarme": "false","tipo": "0"]
-            var enconding = URLEncoding.queryString
-            request.addValue("https://registra.pontofopag.com.br/", forHTTPHeaderField: "Referer")
-            request.addValue("https://registra.pontofopag.com.br", forHTTPHeaderField: "Origin")
-            request.addValue("1", forHTTPHeaderField: "Upgrade-Insecure-Requests")
-            request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-            request.addValue("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.79 Safari/537.36 Edge/14.14393", forHTTPHeaderField: "User-Agent")
+            let enconding = URLEncoding.queryString
             request = try! enconding.encode(request, with: string)
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 guard let data = data, error == nil else {
@@ -205,10 +210,6 @@ class MenuViewModel: NSObject{
     
     
     func podeBaterPonto()->Bool{
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        locationManager.startUpdatingLocation()
         self.locationManager.requestLocation()
         if(CLLocation(latitude: self.currentLatitude, longitude: self.currentLongitude).distance(from: CLLocation(latitude:-23.4192021, longitude: -51.9356276)) > 300.0){
             self.delegate?.onValidatePonto(error: true, erroTitulo: Strings.erroDistanciaTitulo, erroMensagem: Strings.erroDistanciaMensagem, htmlString: "")

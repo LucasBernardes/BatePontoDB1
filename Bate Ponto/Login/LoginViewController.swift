@@ -32,6 +32,11 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
         viewModel.delegate = self
         configureElementes()
         configureDelegate()
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        configureGradient()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -41,6 +46,10 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         requestLocation()
+    }
+    
+    func configureGradient(){
+        self.loginButton.applyGradient(colors: [(UIColor.vermelhoEscuro()?.cgColor)!,(UIColor.vermelhoClaro()?.cgColor)!])
     }
     
     private func configureElementes(){
@@ -54,9 +63,7 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
         self.senhaField.setLeftPaddingPoints(15.0)
         self.cpfField.maskExpression = "{ddd}.{ddd}.{ddd}-{dd}"
         self.cpfField.maskTemplate = "              "
-        self.poweredImage.image = self.poweredImage.image?.maskWithColor(color: .lightGray)
-        self.loginButton.applyGradient(colors: [(UIColor.vermelhoEscuro()?.cgColor)!,(UIColor.vermelhoClaro()?.cgColor)!])
-        
+        self.poweredImage.image = self.poweredImage.image?.maskWithColor(color: .lightGray)        
     }
     
     private func configureDelegate(){
@@ -128,19 +135,19 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
 extension LoginViewController: SPPermissionDialogDataSource, SPPermissionDialogColorSource{
     
     var baseColor: UIColor {return UIColor.red}
-    var dialogSubtitle: String {return "A permissão da localização atual dentro do app é obrigatória para bater o ponto, já a localização no background só é necessária para o aviso automático de chegada na empresa!"}
-    var dialogTitle: String {return "Lista de Permissão"}
-    var dialogComment: String {return "Para bater o ponto é necessário estar a 300m da empresa, caso optando pela opção de localização no background o aplicativo irá avisar assim que for possível bater o ponto."}
+    var dialogSubtitle: String {return Strings.dialogSubtitle}
+    var dialogTitle: String {return Strings.dialogTitle}
+    var dialogComment: String {return Strings.dialogComment}
     
     @objc func name(for permission: SPPermissionType) -> String?{
-        if(permission.rawValue == 8){return "Local"}
-        else if(permission.rawValue == 9){return "Chegada na DB1"}
-        else{return "Notificação"}
+        if(permission.rawValue == 8){return Strings.permissionLocal}
+        else if(permission.rawValue == 9){return Strings.permissionChegada}
+        else{return Strings.permissionNotificacao}
     }
     @objc func description(for permission: SPPermissionType) -> String?{
-        if(permission.rawValue == 8){return "Necessário para bater o ponto"}
-        else if(permission.rawValue == 9){return "Opcional para aviso de chegada"}
-        else{return "Notificação de chegada/saída da empresa"}
+        if(permission.rawValue == 8){return Strings.permissionLocalDescription}
+        else if(permission.rawValue == 9){return Strings.permissionChegadaDescription}
+        else{return Strings.permissionNotificacaoDescription}
     }
     @objc public func image(for permission: SPPermissionType) -> UIImage?{
         if(permission.rawValue == 8){return UIImage.init(named: "local")}

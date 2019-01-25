@@ -47,6 +47,19 @@ class MenuViewController: UIViewController, UICollectionViewDataSource,WKNavigat
         timers()
     }
     
+    override func viewDidLayoutSubviews() {
+        prepareGradient()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.viewModel.preparaBatePonto()
+    }
+    
+    func prepareGradient(){
+        self.registrarButton.applyGradient(colors: [UIColor.vermelhoEscuro()!.cgColor,UIColor.vermelhoClaro()!.cgColor])
+
+    }
+    
     func prepareView(){
         self.registrarButton.layer.cornerRadius = 10
         self.historicoButton.layer.cornerRadius = 10
@@ -55,7 +68,6 @@ class MenuViewController: UIViewController, UICollectionViewDataSource,WKNavigat
         self.horarioLabel.layer.cornerRadius = 10
         self.progressView.progressTintColor = UIColor.vermelhoEscuro()
         self.progressView.transform = self.progressView.transform.scaledBy(x: 1, y: 6)
-        self.registrarButton.applyGradient(colors: [UIColor.vermelhoEscuro()!.cgColor,UIColor.vermelhoClaro()!.cgColor])
         self.horarioDoPonto.text = "Atual 0:00"
         self.activityIndicator.isHidden = true
         self.reloadActivityIndicator.isHidden = true
@@ -227,11 +239,12 @@ extension MenuViewController: MenuViewModelProtocol{
         self.endReload()
         if(error == true){
             self.mostraMensagem(titulo: erroTitulo!, mensagem: erroMensagem!, botao: Strings.erroBotao)
-        }else{
-            self.htmlString = htmlString!
-            viewModel.extractProgressAndTime(historicoHoje: self.historicoHoje)
-            self.collectionView.reloadData()            
         }
+        //else{
+            //self.htmlString = htmlString!
+            //viewModel.extractHistoricoFromHtml(html: self.htmlString)
+            //self.collectionView.reloadData()
+        //}
         
     }
     func showOverView(html: String) {
