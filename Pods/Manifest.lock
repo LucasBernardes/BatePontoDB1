@@ -1,0 +1,22 @@
+PODS:
+  - AAInfographics (2.0.4)
+
+DEPENDENCIES:
+  - AAInfographics (from `https://github.com/AAChartKit/AAChartKit-Swift.git`, branch `master`)
+
+EXTERNAL SOURCES:
+  AAInfographics:
+    :branch: master
+    :git: https://github.com/AAChartKit/AAChartKit-Swift.git
+
+CHECKOUT OPTIONS:
+  AAInfographics:
+    :commit: 60a56ba5ebe118da0c1d032eb4a847bac19dcc41
+    :git: https://github.com/AAChartKit/AAChartKit-Swift.git
+
+SPEC CHECKSUMS:
+  AAInfographics: 10f87e06fc007a0adbb05de020e4a2fe3119f8de
+
+PODFILE CHECKSUM: ae3c5f32edbef7834034e3583d63ded87263411c
+
+COCOAPODS: 1.5.3
