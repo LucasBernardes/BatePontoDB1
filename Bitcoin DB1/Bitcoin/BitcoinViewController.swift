@@ -9,6 +9,7 @@
 import UIKit
 import AAInfographics
 import CoreData
+import RealmSwift
 
 class BitcoinViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, BitcoinViewModelProtocol {
 
@@ -96,6 +97,7 @@ class BitcoinViewController: UIViewController, UITableViewDataSource, UITableVie
         buttonStyle()
         self.viewModel.getUrlJson(dia: "1week")
         self.viewModel.getDate()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 import UIKit
+import RealmSwift
 
 protocol BitcoinViewModelProtocol{
     func onValidateCotacao(erro: Bool?, cotacao: Cotacao?, valorHoje: String?)
@@ -30,7 +31,8 @@ class BitcoinViewModel{
     
     func loadCoreDate(){
         dateFormatterGet.dateFormat = "MM-dd HH:mm:ss"
-        
+        var valores = [String]()
+        /*
         var valores = [String]()
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
@@ -50,8 +52,18 @@ class BitcoinViewModel{
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
+         */
+        let realm = try! Realm()
+        let fromRealm = realm.objects(CotacaoRealm.self)
+        for aux in fromRealm{
+            let date = aux.value(forKey: "dia") as! Date
+            valores.append("USD: \(aux.valor) Dia: \(aux.dia)")
+            
+        }
         self.delegate?.onValidadeCoreData(erro: false, valorEdata: valores)
     }
+    
+    
     func getUrlJson(dia: String){
         guard let gitUrl = URL(string: "https://api.blockchain.info/charts/market-price?timespan=\(dia)") else { return }
         print(gitUrl)
@@ -73,6 +85,20 @@ class BitcoinViewModel{
             }.resume()
     }
     func save(valor: Double) {
+        let cotacaoRealm = CotacaoRealm()
+        cotacaoRealm.dia = Date()
+        cotacaoRealm.valor = valor
+        
+        
+        let realm = try! Realm()
+        let cotacaoFromRealm = realm.objects(CotacaoRealm.self)
+        print(cotacaoFromRealm.count)
+        try! realm.write {
+            realm.add(cotacaoRealm)
+        }
+
+        
+        /*
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
@@ -88,6 +114,7 @@ class BitcoinViewModel{
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
+         */
     }
 
 }

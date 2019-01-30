@@ -1,8 +1,19 @@
 PODS:
   - AAInfographics (2.0.4)
+  - Realm (3.13.1):
+    - Realm/Headers (= 3.13.1)
+  - Realm/Headers (3.13.1)
+  - RealmSwift (3.13.1):
+    - Realm (= 3.13.1)
 
 DEPENDENCIES:
   - AAInfographics (from `https://github.com/AAChartKit/AAChartKit-Swift.git`, branch `master`)
+  - RealmSwift
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Realm
+    - RealmSwift
 
 EXTERNAL SOURCES:
   AAInfographics:
@@ -16,7 +27,9 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AAInfographics: 10f87e06fc007a0adbb05de020e4a2fe3119f8de
+  Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
+  RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
 
-PODFILE CHECKSUM: ae3c5f32edbef7834034e3583d63ded87263411c
+PODFILE CHECKSUM: f8b3dce0a87c88ad08f85d67d55ebd6bd99197ad
 
 COCOAPODS: 1.5.3
