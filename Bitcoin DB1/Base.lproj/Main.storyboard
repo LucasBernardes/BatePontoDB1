@@ -44,7 +44,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitcoin" translatesAutoresizingMaskIntoConstraints="NO" id="E6U-u0-KsL">
-                                <rect key="frame" x="107.66666666666667" y="105" width="20" height="20"/>
+                                <rect key="frame" x="97.666666666666671" y="105" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Fqf-fv-C6H"/>
                                     <constraint firstAttribute="width" constant="20" id="mSa-0q-btC"/>
@@ -177,7 +177,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="9cV-h1-g4N"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saved" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIn-YS-Ywp">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Histórico" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIn-YS-Ywp">
                                 <rect key="frame" x="16" y="572" width="343" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="XFb-g2-wV9"/>
@@ -207,7 +207,7 @@
                             <constraint firstItem="dbE-n9-pNU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="kyJ-Mh-5LR"/>
                             <constraint firstItem="E6U-u0-KsL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="61" id="nMv-17-I1N"/>
                             <constraint firstItem="cCR-VB-xKN" firstAttribute="top" secondItem="vGe-zb-6QQ" secondAttribute="bottom" constant="6" id="njO-l3-lEj"/>
-                            <constraint firstItem="E6U-u0-KsL" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="-70" id="nxK-r8-wE1"/>
+                            <constraint firstItem="E6U-u0-KsL" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="-79.833333333333329" id="nxK-r8-wE1"/>
                             <constraint firstItem="hT4-UJ-Srz" firstAttribute="top" secondItem="uIn-YS-Ywp" secondAttribute="bottom" constant="1" id="p6t-rL-oWQ"/>
                             <constraint firstItem="dbE-n9-pNU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ss6-66-Qa4"/>
                             <constraint firstItem="vGe-zb-6QQ" firstAttribute="top" secondItem="dbE-n9-pNU" secondAttribute="bottom" constant="15" id="wie-mf-lda"/>
@@ -218,6 +218,7 @@
                         <outlet property="cotacaoAtual" destination="dbE-n9-pNU" id="oYO-zq-iaO"/>
                         <outlet property="customTableView" destination="hT4-UJ-Srz" id="d9V-Id-URJ"/>
                         <outlet property="duasSemanas" destination="X8o-73-5Cc" id="nyS-pf-bTM"/>
+                        <outlet property="footerLabel" destination="37q-iM-ECv" id="gps-RY-tVs"/>
                         <outlet property="seisMeses" destination="Oad-UQ-9fi" id="igk-9c-epA"/>
                         <outlet property="stackView" destination="vGe-zb-6QQ" id="dN4-Un-8Jd"/>
                         <outlet property="todos" destination="ELo-zV-oOE" id="qpD-64-72k"/>

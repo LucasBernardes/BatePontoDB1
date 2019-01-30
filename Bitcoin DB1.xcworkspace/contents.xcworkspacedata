@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/lucas.bernardes/Bitcoin DB1/Bitcoin DB1/Bitcoin/Bitcoin.swift">
+   </FileRef>
+   <FileRef
       location = "group:Bitcoin DB1.xcodeproj">
    </FileRef>
    <FileRef

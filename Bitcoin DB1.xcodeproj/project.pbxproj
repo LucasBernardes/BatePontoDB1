@@ -16,9 +16,10 @@
 		7A01A84622006A86006DBC30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A01A84422006A86006DBC30 /* LaunchScreen.storyboard */; };
 		7A01A85122006A86006DBC30 /* Bitcoin_DB1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A01A85022006A86006DBC30 /* Bitcoin_DB1Tests.swift */; };
 		7A01A85C22006A86006DBC30 /* Bitcoin_DB1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A01A85B22006A86006DBC30 /* Bitcoin_DB1UITests.swift */; };
-		7A01A86A22007C63006DBC30 /* BitcoinModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A01A86922007C63006DBC30 /* BitcoinModelView.swift */; };
+		7A01A86A22007C63006DBC30 /* BitcoinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A01A86922007C63006DBC30 /* BitcoinViewModel.swift */; };
 		7A01A86C22007D50006DBC30 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A01A86B22007D50006DBC30 /* Network.swift */; };
 		7A01A8AE2200CE88006DBC30 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A01A8AC2200CE88006DBC30 /* Model.xcdatamodeld */; };
+		7ADCEB572201BA5E00DE8E98 /* Bitcoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCEB562201BA5E00DE8E98 /* Bitcoin.swift */; };
 		ACE654436CA49276D36C0D4C /* Pods_Bitcoin_DB1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE5F394931042435B3EA0B5 /* Pods_Bitcoin_DB1.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,9 +58,10 @@
 		7A01A85722006A86006DBC30 /* Bitcoin DB1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bitcoin DB1UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A01A85B22006A86006DBC30 /* Bitcoin_DB1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bitcoin_DB1UITests.swift; sourceTree = "<group>"; };
 		7A01A85D22006A86006DBC30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7A01A86922007C63006DBC30 /* BitcoinModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinModelView.swift; sourceTree = "<group>"; };
+		7A01A86922007C63006DBC30 /* BitcoinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinViewModel.swift; sourceTree = "<group>"; };
 		7A01A86B22007D50006DBC30 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		7A01A8AD2200CE88006DBC30 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		7ADCEB562201BA5E00DE8E98 /* Bitcoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Bitcoin.swift; path = "/Users/lucas.bernardes/Bitcoin DB1/Bitcoin DB1/Bitcoin/Bitcoin.swift"; sourceTree = "<absolute>"; };
 		7EE5F394931042435B3EA0B5 /* Pods_Bitcoin_DB1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bitcoin_DB1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9967721A1E160ABB196BD575 /* Pods-Bitcoin DB1UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bitcoin DB1UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bitcoin DB1UITests/Pods-Bitcoin DB1UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F00B921C2391D15E43EA2DCA /* Pods-Bitcoin DB1Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bitcoin DB1Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bitcoin DB1Tests/Pods-Bitcoin DB1Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,15 +132,13 @@
 		7A01A83A22006A81006DBC30 /* Bitcoin DB1 */ = {
 			isa = PBXGroup;
 			children = (
+				7ADCEB552201BA3F00DE8E98 /* Bitcoin */,
 				7A01A83B22006A81006DBC30 /* AppDelegate.swift */,
 				7A01A8AC2200CE88006DBC30 /* Model.xcdatamodeld */,
-				7A01A83D22006A81006DBC30 /* BitcoinViewController.swift */,
 				7A01A83F22006A81006DBC30 /* Main.storyboard */,
 				7A01A84222006A86006DBC30 /* Assets.xcassets */,
 				7A01A84422006A86006DBC30 /* LaunchScreen.storyboard */,
 				7A01A84722006A86006DBC30 /* Info.plist */,
-				7A01A86922007C63006DBC30 /* BitcoinModelView.swift */,
-				7A01A86B22007D50006DBC30 /* Network.swift */,
 			);
 			path = "Bitcoin DB1";
 			sourceTree = "<group>";
@@ -159,6 +159,17 @@
 				7A01A85D22006A86006DBC30 /* Info.plist */,
 			);
 			path = "Bitcoin DB1UITests";
+			sourceTree = "<group>";
+		};
+		7ADCEB552201BA3F00DE8E98 /* Bitcoin */ = {
+			isa = PBXGroup;
+			children = (
+				7A01A83D22006A81006DBC30 /* BitcoinViewController.swift */,
+				7A01A86922007C63006DBC30 /* BitcoinViewModel.swift */,
+				7ADCEB562201BA5E00DE8E98 /* Bitcoin.swift */,
+				7A01A86B22007D50006DBC30 /* Network.swift */,
+			);
+			path = Bitcoin;
 			sourceTree = "<group>";
 		};
 		DA2E53B771C2D3BD10F1196C /* Pods */ = {
@@ -400,8 +411,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ADCEB572201BA5E00DE8E98 /* Bitcoin.swift in Sources */,
 				7A01A83E22006A81006DBC30 /* BitcoinViewController.swift in Sources */,
-				7A01A86A22007C63006DBC30 /* BitcoinModelView.swift in Sources */,
+				7A01A86A22007C63006DBC30 /* BitcoinViewModel.swift in Sources */,
 				7A01A8AE2200CE88006DBC30 /* Model.xcdatamodeld in Sources */,
 				7A01A86C22007D50006DBC30 /* Network.swift in Sources */,
 				7A01A83C22006A81006DBC30 /* AppDelegate.swift in Sources */,
