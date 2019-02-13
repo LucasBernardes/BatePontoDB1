@@ -10,6 +10,13 @@
 		2079A1F86700AE624984EC75 /* Pods_Bate_PontoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6418E5401CDAA7BCAEA88960 /* Pods_Bate_PontoTests.framework */; };
 		7A2D15EC21F24B6300A0B86B /* TaskWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2D15EB21F24B6300A0B86B /* TaskWebViewController.swift */; };
 		7A2D15EE21F260A700A0B86B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2D15ED21F260A700A0B86B /* LoginViewController.swift */; };
+		7A314B8822143C2700989308 /* LoginCleanSwiftPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A314B8222143C2700989308 /* LoginCleanSwiftPresenter.swift */; };
+		7A314B8922143C2700989308 /* LoginCleanSwiftWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A314B8322143C2700989308 /* LoginCleanSwiftWorker.swift */; };
+		7A314B8A22143C2700989308 /* LoginCleanSwiftRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A314B8422143C2700989308 /* LoginCleanSwiftRouter.swift */; };
+		7A314B8B22143C2700989308 /* LoginCleanSwiftModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A314B8522143C2700989308 /* LoginCleanSwiftModels.swift */; };
+		7A314B8C22143C2700989308 /* LoginCleanSwiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A314B8622143C2700989308 /* LoginCleanSwiftViewController.swift */; };
+		7A314B8D22143C2700989308 /* LoginCleanSwiftInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A314B8722143C2700989308 /* LoginCleanSwiftInteractor.swift */; };
+		7A3AEE0A21FF3C850006C2D4 /* Sources in Resources */ = {isa = PBXBuildFile; fileRef = 7A3AEE0921FF3C840006C2D4 /* Sources */; };
 		7A9D6FCF21F0BD6F00F5B426 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9D6FCE21F0BD6F00F5B426 /* AppDelegate.swift */; };
 		7A9D6FD121F0BD6F00F5B426 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9D6FD021F0BD6F00F5B426 /* MenuViewController.swift */; };
 		7A9D6FD421F0BD6F00F5B426 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A9D6FD221F0BD6F00F5B426 /* Main.storyboard */; };
@@ -18,6 +25,9 @@
 		7A9D6FE421F0BD7C00F5B426 /* Bate_PontoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9D6FE321F0BD7C00F5B426 /* Bate_PontoTests.swift */; };
 		7A9D6FEF21F0BD7C00F5B426 /* Bate_PontoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9D6FEE21F0BD7C00F5B426 /* Bate_PontoUITests.swift */; };
 		7A9D6FFD21F0BE6400F5B426 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9D6FFC21F0BE6400F5B426 /* UserModel.swift */; };
+		7AA9CF13220B03E9000CF269 /* ConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA9CF12220B03E9000CF269 /* ConfigureViewController.swift */; };
+		7AA9CF17220B3AC0000CF269 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AA9CF16220B3AC0000CF269 /* View.xib */; };
+		7AA9CF19220B3B1B000CF269 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA9CF18220B3B1B000CF269 /* RegisterView.swift */; };
 		7AFAC02921F89F00004528A9 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFAC02821F89F00004528A9 /* UserSettings.swift */; };
 		7AFAC02B21F8C0B0004528A9 /* color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AFAC02A21F8C0B0004528A9 /* color.xcassets */; };
 		7AFAC02E21F8C1EE004528A9 /* UIColor+Named.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFAC02D21F8C1EE004528A9 /* UIColor+Named.swift */; };
@@ -54,6 +64,13 @@
 		76B90276A633D49CCE2F1B1C /* Pods-Bate PontoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bate PontoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bate PontoUITests/Pods-Bate PontoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7A2D15EB21F24B6300A0B86B /* TaskWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskWebViewController.swift; sourceTree = "<group>"; };
 		7A2D15ED21F260A700A0B86B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7A314B8222143C2700989308 /* LoginCleanSwiftPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCleanSwiftPresenter.swift; sourceTree = "<group>"; };
+		7A314B8322143C2700989308 /* LoginCleanSwiftWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCleanSwiftWorker.swift; sourceTree = "<group>"; };
+		7A314B8422143C2700989308 /* LoginCleanSwiftRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCleanSwiftRouter.swift; sourceTree = "<group>"; };
+		7A314B8522143C2700989308 /* LoginCleanSwiftModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCleanSwiftModels.swift; sourceTree = "<group>"; };
+		7A314B8622143C2700989308 /* LoginCleanSwiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCleanSwiftViewController.swift; sourceTree = "<group>"; };
+		7A314B8722143C2700989308 /* LoginCleanSwiftInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCleanSwiftInteractor.swift; sourceTree = "<group>"; };
+		7A3AEE0921FF3C840006C2D4 /* Sources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sources; sourceTree = "<group>"; };
 		7A9D6FCB21F0BD6F00F5B426 /* Bate Ponto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bate Ponto.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A9D6FCE21F0BD6F00F5B426 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A9D6FD021F0BD6F00F5B426 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +85,9 @@
 		7A9D6FEE21F0BD7C00F5B426 /* Bate_PontoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bate_PontoUITests.swift; sourceTree = "<group>"; };
 		7A9D6FF021F0BD7C00F5B426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A9D6FFC21F0BE6400F5B426 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		7AA9CF12220B03E9000CF269 /* ConfigureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureViewController.swift; sourceTree = "<group>"; };
+		7AA9CF16220B3AC0000CF269 /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
+		7AA9CF18220B3B1B000CF269 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		7AFAC02821F89F00004528A9 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		7AFAC02A21F8C0B0004528A9 /* color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = color.xcassets; sourceTree = "<group>"; };
 		7AFAC02D21F8C1EE004528A9 /* UIColor+Named.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Named.swift"; sourceTree = "<group>"; };
@@ -119,6 +139,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7A314B8122143C0700989308 /* CleanSwiftLogin */ = {
+			isa = PBXGroup;
+			children = (
+				7A314B8222143C2700989308 /* LoginCleanSwiftPresenter.swift */,
+				7A314B8322143C2700989308 /* LoginCleanSwiftWorker.swift */,
+				7A314B8422143C2700989308 /* LoginCleanSwiftRouter.swift */,
+				7A314B8522143C2700989308 /* LoginCleanSwiftModels.swift */,
+				7A314B8622143C2700989308 /* LoginCleanSwiftViewController.swift */,
+				7A314B8722143C2700989308 /* LoginCleanSwiftInteractor.swift */,
+			);
+			path = CleanSwiftLogin;
+			sourceTree = "<group>";
+		};
 		7A9D6FC221F0BD6F00F5B426 = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +177,8 @@
 		7A9D6FCD21F0BD6F00F5B426 /* Bate Ponto */ = {
 			isa = PBXGroup;
 			children = (
+				7A314B8122143C0700989308 /* CleanSwiftLogin */,
+				7AA9CF0D220B0132000CF269 /* New Group */,
 				7AFAC03A21FA10A8004528A9 /* TaskWeb */,
 				7AFAC03721F9D309004528A9 /* Menu Principial */,
 				7AFAC03421F9D17D004528A9 /* Constrants */,
@@ -175,6 +210,13 @@
 				7A9D6FF021F0BD7C00F5B426 /* Info.plist */,
 			);
 			path = "Bate PontoUITests";
+			sourceTree = "<group>";
+		};
+		7AA9CF0D220B0132000CF269 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		7AFAC02C21F8C1D3004528A9 /* Extension */ = {
@@ -217,7 +259,11 @@
 		7AFAC03A21FA10A8004528A9 /* TaskWeb */ = {
 			isa = PBXGroup;
 			children = (
+				7A3AEE0921FF3C840006C2D4 /* Sources */,
 				7A2D15EB21F24B6300A0B86B /* TaskWebViewController.swift */,
+				7AA9CF12220B03E9000CF269 /* ConfigureViewController.swift */,
+				7AA9CF18220B3B1B000CF269 /* RegisterView.swift */,
+				7AA9CF16220B3AC0000CF269 /* View.xib */,
 			);
 			path = TaskWeb;
 			sourceTree = "<group>";
@@ -347,6 +393,8 @@
 				7AFAC02B21F8C0B0004528A9 /* color.xcassets in Resources */,
 				7A9D6FD621F0BD7B00F5B426 /* Assets.xcassets in Resources */,
 				7A9D6FD421F0BD6F00F5B426 /* Main.storyboard in Resources */,
+				7AA9CF17220B3AC0000CF269 /* View.xib in Resources */,
+				7A3AEE0A21FF3C850006C2D4 /* Sources in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +448,8 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Bate Ponto/Pods-Bate Ponto-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AKMaskField/AKMaskField.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/KOAlertController/KOAlertController.framework",
 				"${BUILT_PRODUCTS_DIR}/SPPermission/SPPermission.framework",
 				"${BUILT_PRODUCTS_DIR}/SPStorkController/SPStorkController.framework",
@@ -412,6 +462,8 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AKMaskField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KOAlertController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPPermission.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPStorkController.framework",
@@ -474,15 +526,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A314B8A22143C2700989308 /* LoginCleanSwiftRouter.swift in Sources */,
 				7A2D15EE21F260A700A0B86B /* LoginViewController.swift in Sources */,
 				7AFAC03621F9D19F004528A9 /* Strings.swift in Sources */,
+				7AA9CF19220B3B1B000CF269 /* RegisterView.swift in Sources */,
+				7A314B8C22143C2700989308 /* LoginCleanSwiftViewController.swift in Sources */,
 				7AFAC03021F8C762004528A9 /* UIView+Gradient.swift in Sources */,
 				7A9D6FD121F0BD6F00F5B426 /* MenuViewController.swift in Sources */,
 				7AFAC02E21F8C1EE004528A9 /* UIColor+Named.swift in Sources */,
+				7A314B8822143C2700989308 /* LoginCleanSwiftPresenter.swift in Sources */,
 				7AFAC03921F9D5D1004528A9 /* MenuViewModel.swift in Sources */,
+				7A314B8D22143C2700989308 /* LoginCleanSwiftInteractor.swift in Sources */,
+				7A314B8B22143C2700989308 /* LoginCleanSwiftModels.swift in Sources */,
 				7A2D15EC21F24B6300A0B86B /* TaskWebViewController.swift in Sources */,
+				7AA9CF13220B03E9000CF269 /* ConfigureViewController.swift in Sources */,
 				7AFAC02921F89F00004528A9 /* UserSettings.swift in Sources */,
 				7A9D6FFD21F0BE6400F5B426 /* UserModel.swift in Sources */,
+				7A314B8922143C2700989308 /* LoginCleanSwiftWorker.swift in Sources */,
 				7AFAC03321F8D377004528A9 /* LoginViewModel.swift in Sources */,
 				7A9D6FCF21F0BD6F00F5B426 /* AppDelegate.swift in Sources */,
 			);

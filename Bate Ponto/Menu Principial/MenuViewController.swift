@@ -18,6 +18,7 @@ import KOAlertController
 class MenuViewController: UIViewController, UICollectionViewDataSource,WKNavigationDelegate, UICollectionViewDelegate {
 
     
+    @IBOutlet weak var imageDb1: UIImageView!
     @IBOutlet weak var status: UILabel!
     @IBOutlet weak var horarioDoPonto: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -45,6 +46,11 @@ class MenuViewController: UIViewController, UICollectionViewDataSource,WKNavigat
         delegates()
         prepareView()
         timers()
+        self.hero.isEnabled = true
+        self.registrarButton.hero.id = "login"
+        collectionView.hero.modifiers = [.cascade]
+        
+        self.registrarButton.hero.modifiers = [.translate(y: 500), .useGlobalCoordinateSpace]
     }
     
     override func viewDidLayoutSubviews() {
@@ -170,6 +176,7 @@ class MenuViewController: UIViewController, UICollectionViewDataSource,WKNavigat
         }else{
             cell.entradaSaidaLabel.text = "Entrada"
         }
+        cell.hero.modifiers = [.fade,.scale(0.5)]
         cell.numeroLabel.text = "#\(self.historico[indexPath.row].numero)"
         print("\(self.historico[indexPath.row].data)")
         let dateFormatter = DateFormatter()

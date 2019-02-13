@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RegisterPageView" customModule="Bate_Ponto" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="NOME.USUÁRIO" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0wI-5S-fJM">
+                    <rect key="frame" x="16" y="161" width="343" height="47"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="47" id="h9i-Sv-8Mw"/>
+                    </constraints>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="SENHA" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LIY-lS-8M8">
+                    <rect key="frame" x="16" y="223" width="343" height="47"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="47" id="84K-g5-wBb"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1U-Xx-ouB">
+                    <rect key="frame" x="16" y="283" width="343" height="47"/>
+                    <color key="backgroundColor" name="Vermelho Escuro"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="47" id="uKu-HR-ep2"/>
+                    </constraints>
+                    <state key="normal" title="Salvar">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="savePressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="dBt-3f-Fra"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="taskWeb" translatesAutoresizingMaskIntoConstraints="NO" id="VLl-F7-9KE">
+                    <rect key="frame" x="16" y="88" width="343" height="65"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="65" id="1uv-MX-Oqf"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="VLl-F7-9KE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="4IV-TJ-kY5"/>
+                <constraint firstItem="VLl-F7-9KE" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="88" id="4Qp-j9-1Iq"/>
+                <constraint firstItem="e1U-Xx-ouB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="Dy8-kQ-ehS"/>
+                <constraint firstItem="LIY-lS-8M8" firstAttribute="top" secondItem="0wI-5S-fJM" secondAttribute="bottom" constant="15" id="EG9-J6-nfI"/>
+                <constraint firstItem="e1U-Xx-ouB" firstAttribute="top" secondItem="LIY-lS-8M8" secondAttribute="bottom" constant="13" id="Kev-Lx-nxa"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="LIY-lS-8M8" secondAttribute="trailing" constant="16" id="LnB-no-a87"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="e1U-Xx-ouB" secondAttribute="bottom" constant="20" id="QCB-6C-4Q3"/>
+                <constraint firstItem="0wI-5S-fJM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="aQz-YV-KNh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0wI-5S-fJM" secondAttribute="trailing" constant="16" id="emx-hM-dkW"/>
+                <constraint firstItem="LIY-lS-8M8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="hYA-Fo-gMU"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="VLl-F7-9KE" secondAttribute="trailing" constant="16" id="rKM-3f-Nq6"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="e1U-Xx-ouB" secondAttribute="trailing" constant="16" id="vOY-du-agb"/>
+                <constraint firstItem="0wI-5S-fJM" firstAttribute="top" secondItem="VLl-F7-9KE" secondAttribute="bottom" constant="8" id="vie-OF-2SY"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="buttonSave" destination="e1U-Xx-ouB" id="1BH-ZC-CzM"/>
+                <outlet property="loginField" destination="0wI-5S-fJM" id="VSc-7S-lgZ"/>
+                <outlet property="passwordField" destination="LIY-lS-8M8" id="QV2-Sc-W5k"/>
+            </connections>
+            <point key="canvasLocation" x="132" y="-7.1964017991004505"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="taskWeb" width="400" height="119"/>
+        <namedColor name="Vermelho Escuro">
+            <color red="0.98799997568130493" green="0.18000000715255737" blue="0.32199999690055847" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -12,7 +12,8 @@ import Alamofire
 import CoreLocation
 import KOAlertController
 import SPPermission
-
+//import Hero
+import Hero
 class LoginViewController: UIViewController, CLLocationManagerDelegate {
 
     private var images = [UIImage.init(named: "location")!, UIImage.init(named: "notification")!]
@@ -25,13 +26,17 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var senhaField: UITextField!
     @IBOutlet weak var cpfField: AKMaskField!
     @IBOutlet weak var poweredImage: UIImageView!
+    @IBOutlet weak var iamgeDb1: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loginButton.hero.id = "login"
         viewModel = LoginViewModel()
         viewModel.delegate = self
         configureElementes()
         configureDelegate()
+        viewModel.getSavedUser()
         
     }
     
@@ -71,7 +76,7 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     private func configureAlertLocation(){
-        if(SPPermission.isAllow(.locationAlways)){
+        if(SPPermission.isAllow(.locationAlways) || SPPermission.isAllow(.locationWhenInUse)){
             self.allowSegue = true
             UIApplication.shared.cancelAllLocalNotifications()
             let locattionnotification = UILocalNotification()
@@ -84,8 +89,8 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     private func requestLocation(){
-        if(!SPPermission.isAllow(.locationAlways) || !SPPermission.isAllow(.locationWhenInUse)){
-            SPPermission.Dialog.request(with: [.locationWhenInUse, .locationAlways, .notification], on: self, dataSource: self, colorSource: self)
+        if(!SPPermission.isAllow(.locationAlways) && !SPPermission.isAllow(.locationWhenInUse)){
+            SPPermission.Dialog.request(with: [.locationWhenInUse, .locationAlways, .notification], on: self, dataSource: self)
         }
     }
 
@@ -112,7 +117,7 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
         alertController.addAction(defButton) {
             self.stopAnimating()
             if(titulo == Strings.erroLocationTitulo){
-                SPPermission.Dialog.request(with: [.locationWhenInUse, .locationAlways, .notification], on: self, dataSource: self, colorSource: self)
+                SPPermission.Dialog.request(with: [.locationWhenInUse, .locationAlways, .notification], on: self, delegate: self as! SPPermissionDialogDelegate, dataSource: self)
             }
         }
         self.present(alertController, animated: true){}
@@ -120,6 +125,7 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func loginPressed(_ sender: Any) {
         startAnimating()
+        self.view.endEditing(true)
         let currentUser = User(cpf: self.cpfField.text!, senha: self.senhaField.text!)
         self.viewModel.loginUser(user: currentUser)
     }
@@ -157,6 +163,11 @@ extension LoginViewController: SPPermissionDialogDataSource, SPPermissionDialogC
 }
 
 extension LoginViewController: LoginViewModelProtocol{
+    func onCompleteGettingUser(error: Bool?, cpf: String?, senha: String?) {
+        self.cpfField.text = cpf
+        self.senhaField.text = senha
+    }
+    
     
     func onValidateLogin(error: Bool?, erroTitulo: String?, erroMensagem: String?, htmlString: String?){
         stopAnimating()

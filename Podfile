@@ -7,13 +7,15 @@ target 'Bate Ponto' do
 
   # Pods for Bate Ponto
   pod 'Alamofire'
-  pod 'SPStorkController'
+  pod 'SPStorkController', '~> 1.4.2'
   pod 'SparrowKit'
   pod 'AKMaskField'
   pod "ViewAnimator"
   pod 'KOAlertController', '~> 1.0.2'
   pod 'SPPermission'
-
+  pod 'Hero'
+  pod 'IQKeyboardManagerSwift'
+  
   target 'Bate PontoTests' do
     inherit! :search_paths
     # Pods for testing

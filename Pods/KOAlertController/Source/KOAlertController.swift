@@ -627,14 +627,14 @@ open class KOAlertController : UIViewController{
     //––––––––––––––––––––––––––––––––––––––––
     // Call this method somewhere in your view controller setup code.
     @objc private func registerForKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        //NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown), name: NSNotification.Name.UIResponder.keyboardWillShowNotification, object: nil)
+       // NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden), name: NSNotification.Name.UIResponder.keyboardWillHideNotification, object: nil)
     }
     // Called when the UIKeyboardDidShowNotification is sent.
     @objc private func keyboardWasShown(_ notification: Notification) {
         var info = notification.userInfo!
-        let kbSize = (info[UIKeyboardFrameEndUserInfoKey] as! CGRect).size
-        UIView.animate(withDuration: info[UIKeyboardAnimationDurationUserInfoKey] as! TimeInterval) {
+        let kbSize = (info[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect).size
+        UIView.animate(withDuration: info[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval) {
             var bottomInset = kbSize.height + self.insets.bottom
             switch self.style.position {
             case .center:
@@ -655,7 +655,7 @@ open class KOAlertController : UIViewController{
     // Called when the UIKeyboardWillHideNotification is sent
     @objc private func keyboardWillBeHidden(_ notification: Notification) {
         var info = notification.userInfo!
-        UIView.animate(withDuration: info[UIKeyboardAnimationDurationUserInfoKey] as! TimeInterval) {
+        UIView.animate(withDuration: info[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval) {
             self.positionConstrant.constant = self.insets.bottom
             self.view.layoutIfNeeded()
         }

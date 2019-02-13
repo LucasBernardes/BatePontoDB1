@@ -12,13 +12,18 @@ import Alamofire
 
 protocol LoginViewModelProtocol{
     func onValidateLogin(error: Bool?, erroTitulo: String?, erroMensagem: String?, htmlString: String?)
-
+    func onCompleteGettingUser(error: Bool?, cpf: String?, senha: String?)
 }
 
 class LoginViewModel{
     var delegate: LoginViewModelProtocol?
     var htmlResponse: String?
-    
+    func getSavedUser(){
+        let cpf = UserDefaults.standard.string(forKey: "cpf") ?? ""
+        let senha = UserDefaults.standard.string(forKey: "senha") ?? ""
+        delegate?.onCompleteGettingUser(error: false, cpf: cpf, senha: senha)
+        
+    }
     func loginUser(user: User)->Bool{
         var responseString = ""
         if(!SPPermission.isAllow(.locationAlways) && !SPPermission.isAllow(.locationWhenInUse)){
@@ -70,6 +75,8 @@ class LoginViewModel{
                 return
             }
             else{
+                UserDefaults.standard.set(user.cpf, forKey: "cpf")
+                UserDefaults.standard.set(user.senha, forKey: "senha")
                 OperationQueue.main.addOperation{
                     self.delegate?.onValidateLogin(error: false, erroTitulo: Strings.erroSenhaTitulo, erroMensagem: Strings.erroSenhaMensagem, htmlString: responseString)
                     UserDefaults.standard.set(user.cpf.trimmingCharacters(in: CharacterSet.whitespaces), forKey: "cpf")

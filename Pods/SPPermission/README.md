@@ -1,17 +1,17 @@
-<img src="https://rawcdn.githack.com/IvanVorobei/SPPermission/master/Recources/request-permission - baner.svg"/>
+<img src="https://github.com/IvanVorobei/SPPermission/blob/master/Resources/Banner.svg"/>
 
 ## About
 This project is about managing permissions with customizable visual effects. Beautiful dialog increases chance of approval (which is important when we request notification). Simple control of this module saves you hours of development. You can start using this project with just two lines of code and easy customization! You can watch [how I design UI](https://youtu.be/1mDdX7fQRv4) and [how to use pod tutorial](https://youtu.be/viFDunOdyBg) on YouTube.
 
 Preview GIF is loading `4mb`. Please wait.
 
-<img src="https://rawcdn.githack.com/IvanVorobei/RequestPermission/fb53d20f152a3e76e053e6af529306611fb794f0/resources/request-permission - mockup_preview.gif" width="500">
+<img src="https://github.com/IvanVorobei/SPPermission/blob/master/Resources/Preview.gif" width="500">
 
-<img src="https://rawcdn.githack.com/IvanVorobei/SPPermission/1b658cd8943cef1687c37789d6c410a613868c36/Recource/request-permission - shop.svg"/>
+<img src="https://github.com/IvanVorobei/SPPermission/blob/master/Resources/Shop.svg"/>
 
 I have a store where I sell applications and modules for Xcode projects. You can find source codes of applications or custom animations / UI. I regularly update the code. Visit my website to see all items for sale: [xcode-shop.com](https://xcode-shop.com). On the website you can find previews and, for some items, links to AppStore.
 
-<img src="https://rawcdn.githack.com/IvanVorobei/SPPermission/1b658cd8943cef1687c37789d6c410a613868c36/Recource/request-permission - shop.svg"/>
+<img src="https://github.com/IvanVorobei/SPPermission/blob/master/Resources/Shop.svg"/>
 
 ## Requirements
 Swift 4.2. Ready for use on iOS 10+
@@ -50,9 +50,7 @@ To learn how to customize titles and images you can read section [DataSource & C
 
 ## Permissions
 
-<img src="https://rawcdn.githack.com/IvanVorobei/RequestPermission/951477c8e89de55eeeac441102b52b1415c691b7/resources/request-permission_permissions.png"/>
-
-Now also supports `MediaLibrary (Apple Music)` permission.
+<img src="https://github.com/IvanVorobei/SPPermission/blob/master/Resources/Permissions%20List.jpg"/>
 
 If you want to request notification (or other permissions) without dialog, use the function:
 
@@ -62,7 +60,6 @@ SPPermission.request(.notification, with: {
 })
 ```
 
-Notification permission should be tested _only_ on a real device.
 If you want new permission added, create new issue [here](https://github.com/IvanVorobei/SPPermission/issues)
 
 ## Delegate
@@ -123,7 +120,7 @@ SPPermission.Dialog.request(
 
 If you want to inhibite drag gesture to discard the dialog view you need to override `dragToDismiss` parameter, and if you want to add or remove the close button (without the button you’ll have to swipe the dialog to close it), you need to override parameter `showCloseButton`. To see what it looks like, see the picture below:
 
-<img src="https://rawcdn.githack.com/IvanVorobei/RequestPermission/b3e613295b73be36c8a3d35126d1f7015ef432a8/resources/request-permission - close button.png"/>
+<img src="https://github.com/IvanVorobei/SPPermission/blob/master/Resources/Close%20Button.png"/>
 
 In the project you can find an example of usage of `SPPermissionDialogDataSource`
 
@@ -146,7 +143,7 @@ If you want to change the color scheme, you need to implement the protocol `SPPe
 }
 ```
 
-And pass the object to the function `request` for `colorSource`.
+Will auto check `SPPermissionDialogDataSource` also implement `SPPermissionDialogColorSource`. You need pass for `dataSource` object, which implements two protocols.
 
 ## Purpose String in Info.plist
 
@@ -157,15 +154,16 @@ SPPermission uses many permissions in one library; you need to add some strings 
 - NSMicrophoneUsageDescription
 - NSAppleMusicUsageDescription
 - NSSpeechRecognitionUsageDescription
+- NSMotionUsageDescription
 
 ## Contribution
 I would appreciate your participation in the project. If you want to add new permissions, make a pull request. You can ignore adding an icon, I will add it myself. If you find errors in the project, you can create new [issue](https://github.com/IvanVorobei/SPPermission/issues) or fix it and make a pull request.
 
 ## YouTube Video
 
-I have [YouTube channel](https://www.youtube.com/channel/UCNUGzZfcOyX4YpP36VzeZ6A) where I publish videos about Xcode and Design. You can see how I develop native design for `SPPermission` dialog view:
+I have [YouTube channel](http://youtube.com/ivanvorobei) where I publish videos about Xcode and Design. You can see how I develop native design for `SPPermission` dialog view:
 
-[![Timelaps on YouTube](https://rawcdn.githack.com/IvanVorobei/SPPermission/055dc964bfcf948b228a86704b61d10535f3d6d5/Recource/Youtube.jpg)](https://youtu.be/1mDdX7fQRv4)
+[![Timelaps on YouTube](https://github.com/IvanVorobei/SPPermission/blob/master/Resources/YouTube.jpg)](https://youtu.be/1mDdX7fQRv4)
 
 ## For Russian-speaking users
 Вы можете глянуть [туториал на youtube](https://youtu.be/viFDunOdyBg) или почитать статью [Обновление библиотеки SPPermission](https://habr.com/post/430886/), чтобы больше узнать о проекте. Taк же вы можете прочитать статью [Получил 1.2K звезд на GitHub с ужасной архитектурой. Как?](https://habr.com/post/326620/) о первой версии проекта и работе с архитектурой
@@ -177,7 +175,7 @@ Here I would like to offer you my other projects.
 ### SPStorkController
 I created [SPStorkController](https://github.com/IvanVorobei/SPStorkController). It is a modal controller like in Mail or Apple Music application. Similar animation and transition. You can see an example of using controller in app [in AppStore](https://itunes.apple.com/app/id1446635818).
 
-<img src="https://rawcdn.githack.com/IvanVorobei/SPStorkController/c66764082c0d9bf11d0bd46d5fa458edb62044fe/Resources/gif-mockup - 3.gif" width="500">
+<img src="https://github.com/IvanVorobei/SPStorkController/blob/master/Resources/Preview.gif" width="500">
 
 You can buy source code of this app on [xcode-shop.com](https://xcode-shop.com). Price: $200.
 
