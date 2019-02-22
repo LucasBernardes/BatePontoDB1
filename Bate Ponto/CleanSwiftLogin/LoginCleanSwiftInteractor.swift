@@ -14,28 +14,59 @@ import UIKit
 
 protocol LoginCleanSwiftBusinessLogic
 {
-  func doSomething(request: LoginCleanSwift.Something.Request)
+  func doSomething(request: LoginCleanSwift.Fetch.Request)
+  func login(request: LoginCleanSwift.Fetch.Request)
 }
 
 protocol LoginCleanSwiftDataStore
 {
-  //var name: String { get set }
+  var htmlString: String { get set }
+}
+
+protocol LoginResult {
+    func loginResult(response: LoginCleanSwift.Fetch.Response)
 }
 
 class LoginCleanSwiftInteractor: LoginCleanSwiftBusinessLogic, LoginCleanSwiftDataStore
 {
+    func doSomething(request: LoginCleanSwift.Fetch.Request) {
+        print("oi")
+    }
+    
+  var htmlString: String = ""
+    
   var presenter: LoginCleanSwiftPresentationLogic?
   var worker: LoginCleanSwiftWorker?
+    var output: LoginResult!
   //var name: String = ""
   
   // MARK: Do something
   
-  func doSomething(request: LoginCleanSwift.Something.Request)
-  {
-    worker = LoginCleanSwiftWorker()
-    worker?.doSomeWork()
-    
-    let response = LoginCleanSwift.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    func login(request: LoginCleanSwift.Fetch.Request){
+        //if request.lembrarme == nil || request.origem == nil || request.password == nil || request.situacao == nil || request.tipo == nil || request.url == nil || request.userName == nil{
+            
+        //}
+        //let displayHtml =
+        worker = LoginCleanSwiftWorker()
+        worker?.doSomeWork(cpf: request.userName, senha: request.password, cpfsuccess: { (object) in
+            self.presenter?.presentSomething(response: LoginCleanSwift.Fetch.Response(error: false, htmlString: object.htmlString))
+            //loginResult(response: LoginCleanSwift.Fetch.Response(error: false, htmlString: object.htmlString))
+            
+        }, fail: { [weak self] (error) in
+            self?.presenter?.presentSomething(response: LoginCleanSwift.Fetch.Response(error: true, htmlString: ""))
+        })
+        
+        
+        /*
+         let cocktail = response.cocktail!
+         let displayedCocktail = Search.RandomCocktail.ViewModel.DisplayedCocktail(title: cocktail.title, thumb: cocktail.thumb, instructions: cocktail.instructions)
+         let viewModel = Search.RandomCocktail.ViewModel(displayedCocktail: displayedCocktail, isError: response.isError, errorMessage: response.errorMessage)
+         if viewModel.isError {
+         viewController?.displayError(viewModel: viewModel)
+         } else {
+         viewController?.displayCocktail(viewModel: viewModel)
+         }
+         */
+        
+    }
 }

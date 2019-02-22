@@ -14,47 +14,54 @@ import UIKit
 
 @objc protocol LoginCleanSwiftRoutingLogic
 {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+  func routeToSomewhere(segue: UIStoryboardSegue?)
 }
 
 protocol LoginCleanSwiftDataPassing
 {
   var dataStore: LoginCleanSwiftDataStore? { get }
+  var htmlString: String? { get set }
 }
 
 class LoginCleanSwiftRouter: NSObject, LoginCleanSwiftRoutingLogic, LoginCleanSwiftDataPassing
 {
+    
+    
   weak var viewController: LoginCleanSwiftViewController?
   var dataStore: LoginCleanSwiftDataStore?
-  
+  var htmlString: String?
   // MARK: Routing
   
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
-
+  func routeToSomewhere(segue: UIStoryboardSegue?)
+ {
+    //let viewController: LoginCleanSwiftViewController?
+    
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    var destinationVC = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+    passDataToSomewhere(source: dataStore!, destination: &destinationVC)
+    self.navigateToSomewhere(source: viewController!, destination: destinationVC)
+    
+    //navigateToDetails(source: viewController!, destination: destinationVC)
+    
+    
+    //let destinationVC = viewController?.presentingViewController as! MenuViewController
+    //_ = destinationVC.htmlString
+    //self.navigateToSomewhere(source: viewController!, destination: destinationVC)
+    //passDataToSomewhere(source: dataStore!, destination: &destinationDS)
+  
+  }
+    
   // MARK: Navigation
   
-  //func navigateToSomewhere(source: LoginCleanSwiftViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
+  func navigateToSomewhere(source: LoginCleanSwiftViewController, destination: MenuViewController)
+  {
+    source.show(destination, sender: nil)
+  }
   
   // MARK: Passing data
   
-  //func passDataToSomewhere(source: LoginCleanSwiftDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+  func passDataToSomewhere(source: LoginCleanSwiftDataStore, destination: inout MenuViewController)
+  {
+    destination.htmlString = self.htmlString!
+  }
 }

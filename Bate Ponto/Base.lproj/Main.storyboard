@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login Clean Swift View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="Yxi-6s-pPa">
             <objects>
-                <viewController id="NZw-Wy-CgT" customClass="LoginCleanSwiftViewController" customModule="Bate_Ponto" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="NZw-Wy-CgT" customClass="LoginViewController" customModule="Bate_Ponto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6jU-fU-mvl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -49,7 +49,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginPressed:" destination="NZw-Wy-CgT" eventType="touchUpInside" id="hro-jY-esx"/>
+                                    <action selector="loginPressed:" destination="NZw-Wy-CgT" eventType="touchUpInside" id="aby-2s-QZA"/>
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="KtF-FZ-pPy">
@@ -141,15 +141,12 @@
                         <viewLayoutGuide key="safeArea" id="nT2-qI-e1W"/>
                     </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="KtF-FZ-pPy" id="mSq-rc-Nia"/>
-                        <outlet property="cleanButton" destination="nc8-b8-8H4" id="nif-US-Fow"/>
-                        <outlet property="cpfClean" destination="GQA-DK-PTr" id="mFJ-v6-gWr"/>
-                        <outlet property="cpfField" destination="GQA-DK-PTr" id="t2X-Ay-1mP"/>
-                        <outlet property="iamgeDb1" destination="rnL-mj-Jbf" id="6NL-52-WEo"/>
-                        <outlet property="loginButton" destination="nc8-b8-8H4" id="4rP-Gz-35t"/>
-                        <outlet property="passwordClean" destination="ZkV-Am-jzv" id="OfM-b2-B7b"/>
-                        <outlet property="poweredImage" destination="DNR-ac-zAx" id="s4B-cI-PWi"/>
-                        <outlet property="senhaField" destination="ZkV-Am-jzv" id="37q-h8-pw6"/>
+                        <outlet property="activityIndicator" destination="KtF-FZ-pPy" id="yyr-zh-6UH"/>
+                        <outlet property="cpfField" destination="GQA-DK-PTr" id="Wcd-3c-2L9"/>
+                        <outlet property="iamgeDb1" destination="rnL-mj-Jbf" id="jFB-HR-z43"/>
+                        <outlet property="loginButton" destination="nc8-b8-8H4" id="zWY-cA-19u"/>
+                        <outlet property="poweredImage" destination="DNR-ac-zAx" id="qf6-FD-dqy"/>
+                        <outlet property="senhaField" destination="ZkV-Am-jzv" id="z49-Iu-5l0"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="menuSegue" id="74k-qD-8eG"/>
                     </connections>
                 </viewController>
@@ -160,7 +157,7 @@
         <!--Menu View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MenuViewController" customModule="Bate_Ponto" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="MenuViewController" storyboardIdentifier="MenuViewController" id="BYZ-38-t0r" customClass="MenuViewController" customModule="Bate_Ponto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -212,13 +209,6 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DB1 GLOBAL SOFTWARE S/A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eyb-Bw-fef">
-                                                    <rect key="frame" x="12" y="37" width="177" height="16"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtP-5T-ZRf">
                                                     <rect key="frame" x="10" y="74" width="179" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -242,6 +232,13 @@
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DB1 GLOBAL SOFTWARE S/A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eyb-Bw-fef">
+                                                    <rect key="frame" x="12" y="35" width="177" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
@@ -371,9 +368,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="zoT-Wv-HoB">
-                                <rect key="frame" x="177" y="619.66666666666663" width="20" height="20"/>
-                            </activityIndicatorView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="db1logo" translatesAutoresizingMaskIntoConstraints="NO" id="CDk-7I-Nex">
                                 <rect key="frame" x="0.0" y="382" width="375" height="217"/>
                                 <constraints>
@@ -439,6 +433,9 @@
                                     <action selector="registrarPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="voa-ci-OL7"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="zoT-Wv-HoB">
+                                <rect key="frame" x="177" y="619.66666666666663" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>

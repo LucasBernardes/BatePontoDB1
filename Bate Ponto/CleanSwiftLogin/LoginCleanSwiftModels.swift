@@ -16,16 +16,26 @@ enum LoginCleanSwift
 {
   // MARK: Use cases
   
-  enum Something
+  enum Fetch
   {
     struct Request
     {
+        var url = Strings.pontofopagUrl
+        var origem = "RE"
+        var situacao = "I"
+        var userName = "083.441.709-07"
+        var password = "jsbvt9"
+        var lembrarme = "false"
+        var tipo = "1"
     }
     struct Response
     {
+        var error: Bool?
+        var htmlString: String?
     }
     struct ViewModel
     {
+        var html: String?
     }
   }
 }

@@ -15,7 +15,7 @@ import AKMaskField
 
 protocol LoginCleanSwiftDisplayLogic: class
 {
-  func displaySomething(viewModel: LoginCleanSwift.Something.ViewModel)
+  func displaySomething(viewModel: LoginCleanSwift.Fetch.ViewModel)
 }
 
 class LoginCleanSwiftViewController: UIViewController, LoginCleanSwiftDisplayLogic
@@ -70,7 +70,7 @@ class LoginCleanSwiftViewController: UIViewController, LoginCleanSwiftDisplayLog
   override func viewDidLoad()
   {
     super.viewDidLoad()
-    doSomething()
+    //login()
   }
   
   // MARK: Do something
@@ -80,14 +80,21 @@ class LoginCleanSwiftViewController: UIViewController, LoginCleanSwiftDisplayLog
     @IBOutlet weak var passwordClean: UITextField!
     @IBOutlet weak var cpfClean: AKMaskField!
     
-    func doSomething()
+    @IBAction func pressedButton(_ sender: Any) {
+        login()
+    }
+    func login()
   {
-    let request = LoginCleanSwift.Something.Request()
-    interactor?.doSomething(request: request)
+    let request = LoginCleanSwift.Fetch.Request()
+    interactor?.login(request: request)
   }
-  
-  func displaySomething(viewModel: LoginCleanSwift.Something.ViewModel)
+    func displayMenu(){
+        router!.routeToSomewhere(segue: nil)
+    }
+  func displaySomething(viewModel: LoginCleanSwift.Fetch.ViewModel)
   {
-    //nameTextField.text = viewModel.name
+    router!.htmlString = viewModel.html
+    router!.routeToSomewhere(segue: nil)
+    
   }
 }

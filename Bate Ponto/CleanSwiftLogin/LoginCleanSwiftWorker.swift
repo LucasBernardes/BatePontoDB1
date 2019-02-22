@@ -11,10 +11,63 @@
 //
 
 import UIKit
+import SPPermission
+import Alamofire
 
+typealias responseSuccess = (_ response:LoginCleanSwift.Fetch.Response) ->()
+typealias responseFailure = (_ response:LoginCleanSwift.Fetch.Response) ->()
 class LoginCleanSwiftWorker
 {
-  func doSomeWork()
-  {
+    func doSomeWork(cpf: String!, senha: String!, cpfsuccess:@escaping(responseSuccess), fail:@escaping(responseFailure))  {
+    var responseString = ""
+    
+    var request = URLRequest(url: URL(string: Strings.pontofopagUrl)!)
+    request.httpMethod = "POST"
+    var string = [String : String]()
+    string = ["OrigemRegistro": "RE","Situacao": "I","UserName": cpf ,"Password": senha,"Lembrarme": "false","tipo": "1"]
+    print(string)
+    let enconding = URLEncoding.queryString
+    request = try! enconding.encode(request, with: string)
+    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        guard let data = data, error == nil else {
+            OperationQueue.main.addOperation{
+                fail(LoginCleanSwift.Fetch.Response(error: true,htmlString: ""))
+            }
+            return
+        }
+        if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+            OperationQueue.main.addOperation{
+                fail(LoginCleanSwift.Fetch.Response(error: true,htmlString: ""))
+            }
+            return
+        }
+        responseString = String(data: data, encoding: .utf8)!
+        if(responseString.range(of:"CPF inv&#225;lido") != nil){
+            OperationQueue.main.addOperation{
+                fail(LoginCleanSwift.Fetch.Response(error: true,htmlString: ""))
+            }
+            return
+        }
+        
+        if(responseString.range(of:"Funcion&#225;rio N&#227;o Encontrado") != nil){
+            OperationQueue.main.addOperation{
+                fail(LoginCleanSwift.Fetch.Response(error: true,htmlString: ""))
+            }
+            return
+        }
+        else if(responseString.range(of:"CPF n&#227;o encontrado ou senha incorreta.") != nil){
+            OperationQueue.main.addOperation{
+                fail(LoginCleanSwift.Fetch.Response(error: true,htmlString: ""))
+            }
+            return
+        }
+        else{
+            OperationQueue.main.addOperation{
+                cpfsuccess(LoginCleanSwift.Fetch.Response(error: false,htmlString: responseString))
+            }
+        }
+    }
+    task.resume()
+    return 
   }
 }

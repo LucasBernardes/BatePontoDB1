@@ -14,7 +14,7 @@ import UIKit
 
 protocol LoginCleanSwiftPresentationLogic
 {
-  func presentSomething(response: LoginCleanSwift.Something.Response)
+  func presentSomething(response: LoginCleanSwift.Fetch.Response)
 }
 
 class LoginCleanSwiftPresenter: LoginCleanSwiftPresentationLogic
@@ -23,9 +23,9 @@ class LoginCleanSwiftPresenter: LoginCleanSwiftPresentationLogic
   
   // MARK: Do something
   
-  func presentSomething(response: LoginCleanSwift.Something.Response)
+  func presentSomething(response: LoginCleanSwift.Fetch.Response)
   {
-    let viewModel = LoginCleanSwift.Something.ViewModel()
+    let viewModel = LoginCleanSwift.Fetch.ViewModel.init(html: response.htmlString)
     viewController?.displaySomething(viewModel: viewModel)
   }
 }
